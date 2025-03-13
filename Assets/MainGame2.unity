@@ -2532,6 +2532,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 76950769648500921, guid: 6487758b6bf29b741b4f0e31696287ff, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 15.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 76950769648500921, guid: 6487758b6bf29b741b4f0e31696287ff, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -1.5
+      objectReference: {fileID: 0}
     - target: {fileID: 884636253946452738, guid: 6487758b6bf29b741b4f0e31696287ff, type: 3}
       propertyPath: m_Name
       value: Sir.Clyde
@@ -2588,6 +2596,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6577762336893195185, guid: 6487758b6bf29b741b4f0e31696287ff, type: 3}
+      propertyPath: m_Icon
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 7025918385268496621, guid: 6487758b6bf29b741b4f0e31696287ff, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -2597,20 +2609,15 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7607379995655731860, guid: 6487758b6bf29b741b4f0e31696287ff, type: 3}
-      propertyPath: gun
+      propertyPath: bullet
       value: 
-      objectReference: {fileID: 692525295}
+      objectReference: {fileID: 7765107423722670538, guid: 3c4faaf27bcf57c458c4f16653b7053c, type: 3}
     - target: {fileID: 7607379995655731860, guid: 6487758b6bf29b741b4f0e31696287ff, type: 3}
       propertyPath: player
       value: 
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6487758b6bf29b741b4f0e31696287ff, type: 3}
---- !u!1 &692525295 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1175805849098785625, guid: 6487758b6bf29b741b4f0e31696287ff, type: 3}
-  m_PrefabInstance: {fileID: 692525294}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &703480166
 GameObject:
   m_ObjectHideFlags: 0
