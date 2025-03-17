@@ -135,6 +135,18 @@ public class PlayerMovement : MonoBehaviour
             Background.transform.localScale = new Vector3(1, 1, 1); // Reset background scale
         }
     }
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        // Check if the object collided with has the "Trap" tag
+        if (collision.gameObject.CompareTag("Traps"))
+        {
+/*            // Destroy the trap or any other game object that should be destroyed
+            Destroy(collision.gameObject);*/
+
+            // Optionally, you can also destroy the player, or perform other actions
+            Destroy(gameObject);  // Uncomment to destroy the player when hitting the trap
+        }
+    }
 
     private bool isGrounded()
     {
