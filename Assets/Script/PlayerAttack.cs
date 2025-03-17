@@ -7,7 +7,6 @@ public class PlayerAttack : MonoBehaviour
     [SerializeField] private float attackCD;
     private Animator animator;
     private PlayerMovement playerMovement;
-    private float timerCD = Mathf.Infinity;
     private void Awake()
     {
         animator = GetComponent<Animator>();
@@ -18,7 +17,6 @@ public class PlayerAttack : MonoBehaviour
     private void Attack()
     {
         animator.SetTrigger("Attack");
-        timerCD = 0;
     }
 
 

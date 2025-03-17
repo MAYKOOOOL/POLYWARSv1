@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-
 public class Shooting : MonoBehaviour
 {
     [SerializeField] private GameObject gun;
@@ -27,10 +26,10 @@ public class Shooting : MonoBehaviour
         gun.transform.localScale = new Vector3(0.1791739f, 0.1791739f, 0.1791739f);
     }
 
-
     private void HandleGunRotation()
     {
         worldPosition = Camera.main.ScreenToWorldPoint(Mouse.current.position.ReadValue());
+
         direction = (worldPosition - (Vector2)gun.transform.position).normalized;
         gun.transform.right = direction;
 
@@ -43,12 +42,16 @@ public class Shooting : MonoBehaviour
         gun.transform.localScale = localScale;
     }
 
-
     private void HandleGunShooting()
     {
         if (Mouse.current.leftButton.wasPressedThisFrame)
         {
             bulletInst = Instantiate(bullet, bulletSpawnPoint.position, gun.transform.rotation);
+            Bullet bulletMovement = bulletInst.GetComponent<Bullet>();
+            if (bulletMovement != null)
+            {
+                bulletMovement.Initialize(direction);  
+            }
         }
     }
 }

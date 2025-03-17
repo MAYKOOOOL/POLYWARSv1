@@ -1,10 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class PlayerMovement : MonoBehaviour
 {
-    [SerializeField] private float speed;
+    GameObject Background;
+    [SerializeField] private float speed = 10f;
     [SerializeField] private float jumpPower;
     [SerializeField] private LayerMask groundLayer;
     [SerializeField] private LayerMask wallLayer;
@@ -12,7 +15,7 @@ public class PlayerMovement : MonoBehaviour
     private Animator anim;
     private BoxCollider2D boxCollider;
     private float horizontalInput;
-
+    private Vector2 mousePosition;
     private float wallJumpCooldown;
 
     private void Awake()
@@ -25,15 +28,37 @@ public class PlayerMovement : MonoBehaviour
     private void Update()
     {
         horizontalInput = Input.GetAxis("Horizontal");
+/*        Background.transform.localScale = new Vector3(1, 1, 1);*/
 
+        mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         // para mag flip ang character
-        if (horizontalInput > 0.01f)
+/*        if (horizontalInput > 0.01f)
         {
             transform.localScale = Vector3.one;
         }
         else if (horizontalInput < -0.01f)
         {
             transform.localScale = new Vector3(-1, 1, 1);
+        }*/
+        
+        if (mousePosition.x < transform.position.x)
+        {
+
+            flipCharacter(true);
+        }
+        else if(mousePosition.x > transform.position.x)
+        {
+            flipCharacter(false);
+        }
+       
+        // sprint
+        if(Input.GetKey(KeyCode.LeftShift)) 
+        {
+            speed = 20f;
+        }
+        else
+        {
+           speed = 10f;
         }
 
 
@@ -73,7 +98,7 @@ public class PlayerMovement : MonoBehaviour
         if (isGrounded())
         {
             rb.velocity = new Vector2(rb.velocity.x, jumpPower);
-            anim.SetTrigger("Jump");
+            //anim.SetTrigger("Jump");
         }
         else if (onWall() && !isGrounded()) 
         {
@@ -91,6 +116,24 @@ public class PlayerMovement : MonoBehaviour
         }
 
 
+    }
+
+    private void flipCharacter(bool flip)
+    {
+        if (flip)
+        {
+            transform.localScale = new Vector3(-1, 1, 1); // Flip character to the left
+        }
+        else
+        {
+            transform.localScale = new Vector3(1, 1, 1); // Flip character to the right
+        }
+
+        // Prevent the background from flipping by resetting its scale
+        if (Background != null)
+        {
+            Background.transform.localScale = new Vector3(1, 1, 1); // Reset background scale
+        }
     }
 
     private bool isGrounded()
