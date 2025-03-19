@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Projectile : MonoBehaviour
 {
-    [SerializeField] private float speed;
+    [SerializeField] private float speed = 20f;
     private float direction;
     private bool hit;
     private float lifetime;
@@ -42,7 +42,7 @@ public class Projectile : MonoBehaviour
 
     public void setDirection(float _direction)
     {
-        lifetime = 0;
+        lifetime = 3;
         direction = _direction;
         Debug.Log("Fireball Direction: " + direction);
         gameObject.SetActive(true);

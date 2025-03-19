@@ -24,17 +24,36 @@ public class PlayerAttack : MonoBehaviour
 
         cooldownTimer += Time.deltaTime;
     }
+    /*    private void Attack()
+        {
+            animator.SetTrigger("Attack");
+            cooldownTimer = 0;
+
+            firePoint.localPosition = new Vector3(Mathf.Sign(transform.localScale.x) * Mathf.Abs(firePoint.localPosition.x), firePoint.localPosition.y, firePoint.localPosition.z);
+
+            fireballs[FindFireball()].transform.position = firePoint.position;
+            fireballs[FindFireball()].GetComponent<Projectile>().setDirection(Mathf.Sign(transform.localScale.x));
+
+        }*/
+
     private void Attack()
     {
         animator.SetTrigger("Attack");
         cooldownTimer = 0;
 
-        firePoint.localPosition = new Vector3(Mathf.Sign(transform.localScale.x) * Mathf.Abs(firePoint.localPosition.x), firePoint.localPosition.y, firePoint.localPosition.z);
+        // Set FirePoint position based on player's direction
+        firePoint.localPosition = new Vector3(Mathf.Sign(transform.localScale.x) * Mathf.Abs(firePoint.localPosition.x),
+                                              firePoint.localPosition.y,
+                                              firePoint.localPosition.z);
 
-        fireballs[FindFireball()].transform.position = firePoint.position;
-        fireballs[FindFireball()].GetComponent<Projectile>().setDirection(Mathf.Sign(transform.localScale.x));
+        // Get the fireball and set its position & direction
+        GameObject fireball = fireballs[FindFireball()];
+        fireball.transform.position = firePoint.position;
+        fireball.GetComponent<Projectile>().setDirection(Mathf.Sign(transform.localScale.x));
 
+        
     }
+
 
     private int FindFireball()
     {
