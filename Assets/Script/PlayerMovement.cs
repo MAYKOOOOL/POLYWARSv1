@@ -32,16 +32,16 @@ public class PlayerMovement : MonoBehaviour
 
         mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         // para mag flip ang character
-/*        if (horizontalInput > 0.01f)
+        if (horizontalInput > 0.01f)
         {
             transform.localScale = Vector3.one;
         }
         else if (horizontalInput < -0.01f)
         {
             transform.localScale = new Vector3(-1, 1, 1);
-        }*/
-        
-        if (mousePosition.x < transform.position.x)
+        }
+
+       /* if (mousePosition.x < transform.position.x)
         {
 
             flipCharacter(true);
@@ -49,7 +49,7 @@ public class PlayerMovement : MonoBehaviour
         else if(mousePosition.x > transform.position.x)
         {
             flipCharacter(false);
-        }
+        }*/
        
         // sprint
         if(Input.GetKey(KeyCode.LeftShift)) 
@@ -90,7 +90,7 @@ public class PlayerMovement : MonoBehaviour
             wallJumpCooldown += Time.deltaTime;
         }
 
-        print(onWall());
+        /*print(onWall());*/
     }
 
     private void Jump()
@@ -118,7 +118,7 @@ public class PlayerMovement : MonoBehaviour
 
     }
 
-    private void flipCharacter(bool flip)
+    /*private void flipCharacter(bool flip)
     {
         if (flip)
         {
@@ -134,7 +134,7 @@ public class PlayerMovement : MonoBehaviour
         {
             Background.transform.localScale = new Vector3(1, 1, 1); // Reset background scale
         }
-    }
+    }*/
     private void OnCollisionEnter2D(Collision2D collision)
     {
         // Check if the object collided with has the "Trap" tag

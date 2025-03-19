@@ -1,4 +1,4 @@
-using System.Collections;
+/*using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -47,7 +47,7 @@ public class Shooting : MonoBehaviour
         if (Mouse.current.leftButton.wasPressedThisFrame)
         {
             bulletInst = Instantiate(bullet, bulletSpawnPoint.position, gun.transform.rotation);
-            Bullet bulletMovement = bulletInst.GetComponent<Bullet>();
+            Projectile bulletMovement = bulletInst.GetComponent<Projectile>();
             if (bulletMovement != null)
             {
                 bulletMovement.Initialize(direction);  
@@ -55,3 +55,4 @@ public class Shooting : MonoBehaviour
         }
     }
 }
+*/
