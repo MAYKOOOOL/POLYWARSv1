@@ -149,7 +149,9 @@ public class PlayerMovement : MonoBehaviour
                         Destroy(collision.gameObject);*/
 
             // Optionally, you can also destroy the player, or perform other actions
-            hm.TakeDamage(20);
+            int randomDamage = Random.Range(3, 5 + 1);
+            hm.TakeDamage(randomDamage);
+           
         }
     }
 

@@ -8,7 +8,12 @@ public class HealthManager : MonoBehaviour
 {
     public Image healthBar;
     public float HealthAmount = 100f;
+    public float health;
 
+    private void Start()
+    {
+        health = HealthAmount;
+    }
     public void TakeDamage(float damage)
     {
         HealthAmount -= damage;
@@ -16,7 +21,7 @@ public class HealthManager : MonoBehaviour
 
         if(HealthAmount <= 0)
         {
-            gameObject.SetActive(false);
+            Destroy(gameObject);
         }
     }
 

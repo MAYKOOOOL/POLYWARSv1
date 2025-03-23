@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 46888381068976856}
   - component: {fileID: 7391278263714308695}
   - component: {fileID: 3734934211544675182}
+  - component: {fileID: 4657271410160846956}
   m_Layer: 0
   m_Name: Sir.Clyde
   m_TagString: Player
@@ -228,6 +229,21 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+--- !u!114 &4657271410160846956
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 884636253946452738}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 015df01f3d0046b479266634d7f5887d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  healthBar: {fileID: 0}
+  HealthAmount: 100
+  health: 0
 --- !u!1 &961695688448772387
 GameObject:
   m_ObjectHideFlags: 0
