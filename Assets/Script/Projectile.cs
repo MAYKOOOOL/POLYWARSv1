@@ -10,7 +10,7 @@ public class Projectile : MonoBehaviour
     private float lifetime;
 
     private Animator anim;
-    private BoxCollider2D boxCollider;
+    [SerializeField] private BoxCollider2D boxCollider;
 
     private void Awake()
     {
@@ -22,14 +22,12 @@ public class Projectile : MonoBehaviour
     {
         if (hit) return;
 
-        float movementSpeed = speed * Time.deltaTime * direction;
-        transform.Translate(new Vector3(movementSpeed, 0, 0));
-        Debug.Log("Fireball Moving - Direction: " + direction + " Position: " + transform.position);
+        transform.Translate(Vector3.right * direction * speed * Time.deltaTime);
 
         lifetime += Time.deltaTime;
         if(lifetime > 5)
         {
-            gameObject.SetActive(false);
+            Deactivate();
         }
     }
 
@@ -42,21 +40,16 @@ public class Projectile : MonoBehaviour
 
     public void setDirection(float _direction)
     {
-        lifetime = 3;
+        lifetime = 0;
         direction = _direction;
-        Debug.Log("Fireball Direction: " + direction);
-        gameObject.SetActive(true);
         hit = false;
         boxCollider.enabled = true;
+        gameObject.SetActive(true);
 
-        float localScaleX = transform.localScale.x;
-        if(Mathf.Sign(localScaleX) != _direction)
-        {
-            localScaleX = -localScaleX;
-        }
-
-        transform.localScale = new Vector3(localScaleX, transform.localScale.y, transform.localScale.z);
+        // Instead of flipping rotation, flip localScale (ensures direction works properly)
+        transform.localScale = new Vector3(direction, 1, 1);
     }
+
 
     private void Deactivate()
     {

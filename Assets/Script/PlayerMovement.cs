@@ -9,16 +9,26 @@ public class PlayerMovement : MonoBehaviour
     GameObject Background;
     [SerializeField] private float speed = 10f;
     [SerializeField] private float jumpPower;
+
     [SerializeField] private LayerMask groundLayer;
     [SerializeField] private LayerMask wallLayer;
+    [SerializeField] private LayerMask trapLayer;
+
     private Rigidbody2D rb;
     private Animator anim;
-    private BoxCollider2D boxCollider;
-    private float horizontalInput;
-    private Vector2 mousePosition;
-    private float wallJumpCooldown;
-   
     private HealthManager hm;
+    private BoxCollider2D boxCollider;
+
+    private Vector2 mousePosition;
+
+    private float horizontalInput;
+    private float wallJumpCooldown;
+
+    [SerializeField] public float KBForce = 10f;
+    [SerializeField] public float KBCounter;
+    [SerializeField] public float KBTotalTime = 0.5f;
+
+    public bool KnockFromRight;
 
     private void Awake()
     {
@@ -72,9 +82,26 @@ public class PlayerMovement : MonoBehaviour
         // para sa wall jump
         if(wallJumpCooldown > 0.2f)
         { 
-            rb.velocity = new Vector2(horizontalInput * speed, rb.velocity.y);
+            if(KBCounter <= 0)
+            {
+                rb.velocity = new Vector2(horizontalInput * speed, rb.velocity.y);
+            }
+            else
+            {
+                if(KnockFromRight == true)
+                {
+                    rb.velocity = new Vector2(-KBForce, KBForce);
+                }
+                if(KnockFromRight == false)
+                {
+                    rb.velocity = new Vector2(KBForce, KBForce);
+                }
 
-            if (onWall() && !isGrounded())
+                KBCounter -= Time.deltaTime;
+            }
+
+
+            if (onWall() && !isGrounded() && !isTrapped())
             {
                 rb.gravityScale = 0;
                 rb.velocity = Vector2.zero;
@@ -98,7 +125,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void Jump()
     {
-        if (isGrounded())
+        if (isGrounded() || isTrapped())
         {
             rb.velocity = new Vector2(rb.velocity.x, jumpPower);
             anim.SetTrigger("Jump");
@@ -142,13 +169,20 @@ public class PlayerMovement : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        // Check if the object collided with has the "Trap" tag
         if (collision.gameObject.CompareTag("Traps"))
         {
-            /*            // Destroy the trap or any other game object that should be destroyed
-                        Destroy(collision.gameObject);*/
+           KBCounter = KBTotalTime;
 
-            // Optionally, you can also destroy the player, or perform other actions
+            if (collision.transform.position.x <= transform.position.x)
+            {
+                KnockFromRight = true;
+            }
+
+            if (collision.transform.position.x > transform.position.x)
+            {
+                KnockFromRight = false;
+            }
+
             int randomDamage = Random.Range(3, 5 + 1);
             hm.TakeDamage(randomDamage);
            
@@ -160,6 +194,12 @@ public class PlayerMovement : MonoBehaviour
         RaycastHit2D raycastHit = Physics2D.BoxCast(boxCollider.bounds.center, boxCollider.bounds.size, 0, Vector2.down, 0.1f, groundLayer);
         return raycastHit.collider != null;
     }
+
+    private bool isTrapped()
+    {
+        RaycastHit2D raycastHit = Physics2D.BoxCast(boxCollider.bounds.center, boxCollider.bounds.size, 0, Vector2.down, 0.1f, trapLayer);
+        return raycastHit.collider != null;
+    }
     private bool onWall()
     {
         RaycastHit2D raycastHit = Physics2D.BoxCast(boxCollider.bounds.center, boxCollider.bounds.size, 0, new Vector2(transform.localScale.x, 0), 0.1f, wallLayer);
@@ -169,5 +209,5 @@ public class PlayerMovement : MonoBehaviour
     public bool canAttack()
     {
         return horizontalInput == 0 &&  isGrounded() && !onWall();
-    }
+    }   
 }
