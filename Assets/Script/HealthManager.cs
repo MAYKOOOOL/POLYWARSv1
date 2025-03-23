@@ -13,13 +13,15 @@ public class HealthManager : MonoBehaviour
     {
         HealthAmount -= damage;
         healthBar.fillAmount = HealthAmount / 100f;
+
+        if(HealthAmount <= 0)
+        {
+            gameObject.SetActive(false);
+        }
     }
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space)) { 
-            TakeDamage(20);
-        }
 
         if (Input.GetKeyDown(KeyCode.R))
         {

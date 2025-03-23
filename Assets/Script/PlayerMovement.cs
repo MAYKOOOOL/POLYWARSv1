@@ -17,12 +17,15 @@ public class PlayerMovement : MonoBehaviour
     private float horizontalInput;
     private Vector2 mousePosition;
     private float wallJumpCooldown;
+   
+    private HealthManager hm;
 
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
         boxCollider = GetComponent<BoxCollider2D>();
+        hm = FindObjectOfType<HealthManager>();
     }
 
     private void Update()
@@ -135,16 +138,18 @@ public class PlayerMovement : MonoBehaviour
             Background.transform.localScale = new Vector3(1, 1, 1); // Reset background scale
         }
     }*/
+
+
     private void OnCollisionEnter2D(Collision2D collision)
     {
         // Check if the object collided with has the "Trap" tag
         if (collision.gameObject.CompareTag("Traps"))
         {
-/*            // Destroy the trap or any other game object that should be destroyed
-            Destroy(collision.gameObject);*/
+            /*            // Destroy the trap or any other game object that should be destroyed
+                        Destroy(collision.gameObject);*/
 
             // Optionally, you can also destroy the player, or perform other actions
-            Destroy(gameObject);  // Uncomment to destroy the player when hitting the trap
+            hm.TakeDamage(20);
         }
     }
 
