@@ -1565,6 +1565,7 @@ GameObject:
   - component: {fileID: 228791792}
   - component: {fileID: 228791795}
   - component: {fileID: 228791796}
+  - component: {fileID: 228791797}
   m_Layer: 0
   m_Name: Squard0
   m_TagString: Enemy
@@ -1744,6 +1745,19 @@ MonoBehaviour:
   patrolDestination: 0
   playerTransform: {fileID: 1399792656}
   isChasing: 0
+--- !u!114 &228791797
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 228791790}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 555298b938092b54ba9df27af51153fc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 3
 --- !u!1 &251237489
 GameObject:
   m_ObjectHideFlags: 0
@@ -8296,6 +8310,7 @@ GameObject:
   - component: {fileID: 1012516612}
   - component: {fileID: 1012516611}
   - component: {fileID: 1012516610}
+  - component: {fileID: 1012516615}
   m_Layer: 0
   m_Name: Squard5
   m_TagString: Enemy
@@ -8475,6 +8490,19 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1012516615
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1012516608}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 555298b938092b54ba9df27af51153fc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 3
 --- !u!1 &1043712112
 GameObject:
   m_ObjectHideFlags: 0
@@ -10653,6 +10681,7 @@ GameObject:
   - component: {fileID: 1400003498}
   - component: {fileID: 1400003497}
   - component: {fileID: 1400003496}
+  - component: {fileID: 1400003501}
   m_Layer: 0
   m_Name: Squard2
   m_TagString: Enemy
@@ -10832,6 +10861,19 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1400003501
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1400003494}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 555298b938092b54ba9df27af51153fc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 3
 --- !u!1 &1407788280
 GameObject:
   m_ObjectHideFlags: 0
@@ -14435,6 +14477,7 @@ GameObject:
   - component: {fileID: 1808591603}
   - component: {fileID: 1808591602}
   - component: {fileID: 1808591601}
+  - component: {fileID: 1808591606}
   m_Layer: 0
   m_Name: Squard4
   m_TagString: Enemy
@@ -14614,6 +14657,19 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1808591606
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1808591599}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 555298b938092b54ba9df27af51153fc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 3
 --- !u!1 &1818686553
 GameObject:
   m_ObjectHideFlags: 0
@@ -17358,6 +17414,7 @@ GameObject:
   - component: {fileID: 2064294727}
   - component: {fileID: 2064294726}
   - component: {fileID: 2064294725}
+  - component: {fileID: 2064294730}
   m_Layer: 0
   m_Name: Squard3
   m_TagString: Enemy
@@ -17537,6 +17594,19 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &2064294730
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2064294723}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 555298b938092b54ba9df27af51153fc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 3
 --- !u!1 &2064742547
 GameObject:
   m_ObjectHideFlags: 0
@@ -17681,6 +17751,7 @@ GameObject:
   - component: {fileID: 2070172045}
   - component: {fileID: 2070172044}
   - component: {fileID: 2070172043}
+  - component: {fileID: 2070172048}
   m_Layer: 0
   m_Name: Squard1
   m_TagString: Enemy
@@ -17860,6 +17931,19 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &2070172048
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2070172041}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 555298b938092b54ba9df27af51153fc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 3
 --- !u!1 &2082167717
 GameObject:
   m_ObjectHideFlags: 0
