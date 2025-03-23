@@ -19,7 +19,7 @@ public class PlayerAttack : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetMouseButton(0) && cooldownTimer > attackCD && playerMovement.canAttack())
+        if (Input.GetKey(KeyCode.J)  && cooldownTimer > attackCD && playerMovement.canAttack())
             Attack();
 
         cooldownTimer += Time.deltaTime;
@@ -41,17 +41,16 @@ public class PlayerAttack : MonoBehaviour
         animator.SetTrigger("Attack");
         cooldownTimer = 0;
 
-        // Set FirePoint position based on player's direction
-        firePoint.localPosition = new Vector3(Mathf.Sign(transform.localScale.x) * Mathf.Abs(firePoint.localPosition.x),
+        // Adjust FirePoint's position based on the player's facing direction
+        float direction = Mathf.Sign(transform.localScale.x);
+        firePoint.localPosition = new Vector3(direction * Mathf.Abs(firePoint.localPosition.x),
                                               firePoint.localPosition.y,
                                               firePoint.localPosition.z);
 
         // Get the fireball and set its position & direction
         GameObject fireball = fireballs[FindFireball()];
         fireball.transform.position = firePoint.position;
-        fireball.GetComponent<Projectile>().setDirection(Mathf.Sign(transform.localScale.x));
-
-        
+        fireball.GetComponent<Projectile>().setDirection(direction);
     }
 
 

@@ -454,7 +454,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 800, y: 600}
@@ -474,8 +474,8 @@ Canvas:
   m_GameObject: {fileID: 37503871}
   m_Enabled: 1
   serializedVersion: 3
-  m_RenderMode: 0
-  m_Camera: {fileID: 0}
+  m_RenderMode: 1
+  m_Camera: {fileID: 519420031}
   m_PlaneDistance: 100
   m_PixelPerfect: 0
   m_ReceivesEvents: 1
@@ -895,14 +895,14 @@ RectTransform:
   m_GameObject: {fileID: 180887451}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.305555, y: 0.1527775, z: 0.1527775}
+  m_LocalScale: {x: 0.4649019, y: 0.23245095, z: 0.23245095}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 37503872}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -107, y: 108}
+  m_AnchoredPosition: {x: -156.5, y: 157.2}
   m_SizeDelta: {x: 500, y: 150}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &180887453
@@ -988,6 +988,7 @@ GameObject:
   - component: {fileID: 228791792}
   - component: {fileID: 228791795}
   - component: {fileID: 228791796}
+  - component: {fileID: 228791797}
   m_Layer: 0
   m_Name: Squard0
   m_TagString: Untagged
@@ -1164,6 +1165,29 @@ MonoBehaviour:
   - {fileID: 39428095}
   moveSpeed: 5
   patrolDestination: 0
+  playerTransform: {fileID: 1399792656}
+  isChasing: 0
+--- !u!95 &228791797
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 228791790}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: ebc1847c6ff75f4409f1e95f2c69191c, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &251237489
 GameObject:
   m_ObjectHideFlags: 0
@@ -1326,14 +1350,14 @@ RectTransform:
   m_GameObject: {fileID: 287310452}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.2677456, y: 0.1338728, z: 0.1338728}
+  m_LocalScale: {x: 0.40737495, y: 0.20368747, z: 0.20368747}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 37503872}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -106.809326, y: 107.8967}
+  m_AnchoredPosition: {x: -156.20998, y: 157.04}
   m_SizeDelta: {x: 555.4838, y: 138.3341}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &287310454
@@ -1666,14 +1690,14 @@ RectTransform:
   m_GameObject: {fileID: 330822542}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.4964095, y: 1.4964095, z: 1.4964095}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 37503872}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -214, y: 99}
+  m_AnchoredPosition: {x: -320.7, y: 146.2}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &330822544
@@ -4493,6 +4517,10 @@ PrefabInstance:
       value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 1253343435098885569, guid: 6487758b6bf29b741b4f0e31696287ff, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1253343435098885569, guid: 6487758b6bf29b741b4f0e31696287ff, type: 3}
       propertyPath: m_LocalPosition.x
       value: -11.47
       objectReference: {fileID: 0}
@@ -4578,7 +4606,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3734934211544675182, guid: 6487758b6bf29b741b4f0e31696287ff, type: 3}
       propertyPath: attackCD
-      value: 0.5
+      value: 0.25
       objectReference: {fileID: 0}
     - target: {fileID: 3734934211544675182, guid: 6487758b6bf29b741b4f0e31696287ff, type: 3}
       propertyPath: fireballs.Array.size
@@ -5461,14 +5489,14 @@ RectTransform:
   m_GameObject: {fileID: 779407628}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.2677456, y: 0.1338728, z: 0.1338728}
+  m_LocalScale: {x: 0.40737495, y: 0.20368747, z: 0.20368747}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 37503872}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -106.809326, y: 107.8967}
+  m_AnchoredPosition: {x: -156.20998, y: 157.04}
   m_SizeDelta: {x: 555.4838, y: 138.3341}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &809620426
@@ -7034,6 +7062,7 @@ GameObject:
   - component: {fileID: 1012516612}
   - component: {fileID: 1012516611}
   - component: {fileID: 1012516610}
+  - component: {fileID: 1012516615}
   m_Layer: 0
   m_Name: Squard5
   m_TagString: Untagged
@@ -7073,6 +7102,8 @@ MonoBehaviour:
   - {fileID: 333450634}
   moveSpeed: 5
   patrolDestination: 0
+  playerTransform: {fileID: 1399792656}
+  isChasing: 0
 --- !u!50 &1012516611
 Rigidbody2D:
   serializedVersion: 4
@@ -7210,6 +7241,27 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &1012516615
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1012516608}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: ebc1847c6ff75f4409f1e95f2c69191c, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1043712112
 GameObject:
   m_ObjectHideFlags: 0
@@ -8449,9 +8501,9 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingLayerID: -1975351413
+  m_SortingLayer: -1
+  m_SortingOrder: 0
   m_Sprite: {fileID: -5972511174325398115, guid: 922d61ca2ccda8d48b30a1610cdf20b3, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -9328,6 +9380,7 @@ GameObject:
   - component: {fileID: 1400003498}
   - component: {fileID: 1400003497}
   - component: {fileID: 1400003496}
+  - component: {fileID: 1400003501}
   m_Layer: 0
   m_Name: Squard2
   m_TagString: Untagged
@@ -9367,6 +9420,8 @@ MonoBehaviour:
   - {fileID: 1705623332}
   moveSpeed: 5
   patrolDestination: 0
+  playerTransform: {fileID: 1399792656}
+  isChasing: 0
 --- !u!50 &1400003497
 Rigidbody2D:
   serializedVersion: 4
@@ -9504,6 +9559,27 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &1400003501
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1400003494}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: ebc1847c6ff75f4409f1e95f2c69191c, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1407788280
 GameObject:
   m_ObjectHideFlags: 0
@@ -10597,7 +10673,7 @@ GameObject:
   - component: {fileID: 1536724432}
   - component: {fileID: 1536724434}
   - component: {fileID: 1536724433}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: DIRT 2 (15)
   m_TagString: Ground
   m_Icon: {fileID: 0}
@@ -12711,6 +12787,7 @@ GameObject:
   - component: {fileID: 1808591603}
   - component: {fileID: 1808591602}
   - component: {fileID: 1808591601}
+  - component: {fileID: 1808591606}
   m_Layer: 0
   m_Name: Squard4
   m_TagString: Untagged
@@ -12750,6 +12827,8 @@ MonoBehaviour:
   - {fileID: 361283259}
   moveSpeed: 5
   patrolDestination: 0
+  playerTransform: {fileID: 1399792656}
+  isChasing: 0
 --- !u!50 &1808591602
 Rigidbody2D:
   serializedVersion: 4
@@ -12887,6 +12966,27 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &1808591606
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1808591599}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: ebc1847c6ff75f4409f1e95f2c69191c, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1818686553
 GameObject:
   m_ObjectHideFlags: 0
@@ -15019,6 +15119,7 @@ GameObject:
   - component: {fileID: 2064294727}
   - component: {fileID: 2064294726}
   - component: {fileID: 2064294725}
+  - component: {fileID: 2064294730}
   m_Layer: 0
   m_Name: Squard3
   m_TagString: Untagged
@@ -15058,6 +15159,8 @@ MonoBehaviour:
   - {fileID: 897886792}
   moveSpeed: 5
   patrolDestination: 0
+  playerTransform: {fileID: 1399792656}
+  isChasing: 0
 --- !u!50 &2064294726
 Rigidbody2D:
   serializedVersion: 4
@@ -15195,6 +15298,27 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &2064294730
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2064294723}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: ebc1847c6ff75f4409f1e95f2c69191c, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &2064742547
 GameObject:
   m_ObjectHideFlags: 0
@@ -15339,6 +15463,7 @@ GameObject:
   - component: {fileID: 2070172045}
   - component: {fileID: 2070172044}
   - component: {fileID: 2070172043}
+  - component: {fileID: 2070172048}
   m_Layer: 0
   m_Name: Squard1
   m_TagString: Untagged
@@ -15378,6 +15503,8 @@ MonoBehaviour:
   - {fileID: 874410821}
   moveSpeed: 5
   patrolDestination: 0
+  playerTransform: {fileID: 1399792656}
+  isChasing: 0
 --- !u!50 &2070172044
 Rigidbody2D:
   serializedVersion: 4
@@ -15515,6 +15642,27 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &2070172048
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2070172041}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: ebc1847c6ff75f4409f1e95f2c69191c, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &2082167717
 GameObject:
   m_ObjectHideFlags: 0

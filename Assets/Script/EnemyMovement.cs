@@ -8,6 +8,9 @@ public class EnemyMovement : MonoBehaviour
     public float moveSpeed;
     public float patrolDestination;
 
+    public Transform playerTransform;
+    public bool isChasing;
+    private float chaseDistance = 5;
     void Start()
     {
         
@@ -16,22 +19,50 @@ public class EnemyMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(patrolDestination == 0)
-        {
-            transform.position = Vector2.MoveTowards(transform.position, patrolPoints[0].position, moveSpeed * Time.deltaTime);
-            if(Vector2.Distance(transform.position, patrolPoints[0].position) < .2f)
-            {
-                patrolDestination = 1;
-            }
-        }
 
-        if (patrolDestination == 1)
+        if (isChasing)
         {
-            transform.position = Vector2.MoveTowards(transform.position, patrolPoints[1].position, moveSpeed * Time.deltaTime);
-            if (Vector2.Distance(transform.position, patrolPoints[1].position) < .2f)
+            if(transform.position.x > playerTransform.position.x)
             {
-                patrolDestination = 0;
+                transform.position += Vector3.left * moveSpeed * Time.deltaTime;
+            }
+
+            if (transform.position.x < playerTransform.position.x)
+            {
+                transform.position += Vector3.right * moveSpeed * Time.deltaTime;
             }
         }
+        else
+        {
+            if(Vector2.Distance(transform.position, playerTransform.position) < chaseDistance)
+            {
+                isChasing = true;
+            }
+
+            if (patrolDestination == 0)
+            {
+                transform.position = Vector2.MoveTowards(transform.position, patrolPoints[0].position, moveSpeed * Time.deltaTime);
+                if (Vector2.Distance(transform.position, patrolPoints[0].position) < .2f)
+                {
+                    patrolDestination = 1;
+                }
+            }
+
+            if (patrolDestination == 1)
+            {
+                transform.position = Vector2.MoveTowards(transform.position, patrolPoints[1].position, moveSpeed * Time.deltaTime);
+                if (Vector2.Distance(transform.position, patrolPoints[1].position) < .2f)
+                {
+                    patrolDestination = 0;
+                }
+            }
+        }        
     }
+
+/*    private void enemyTakeDamage()
+    {
+
+    }*/
+
+
 }
