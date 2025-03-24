@@ -25,7 +25,7 @@ public class EnemyDamage : MonoBehaviour
                 playerMovement.KnockFromRight = false;
             }
 
-            int randomDamage = Random.Range(3, 5 + 1);
+            int randomDamage = Random.Range(3, 6);  
             playerHealth.TakeDamage(randomDamage);
         }
     }

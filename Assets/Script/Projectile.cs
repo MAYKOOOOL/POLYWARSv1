@@ -25,7 +25,7 @@ public class Projectile : MonoBehaviour
         transform.Translate(Vector3.right * direction * speed * Time.deltaTime);
 
         lifetime += Time.deltaTime;
-        if(lifetime > 5)
+        if(lifetime > 2)
         {
             Deactivate();
         }
@@ -42,7 +42,8 @@ public class Projectile : MonoBehaviour
             Enemy enemy = collision.GetComponent<Enemy>();
             if (enemy != null)
             {
-                enemy.TakeDamage(1); // Deal 1 damage
+                int randomDamage = Random.Range(3, 5 + 1);
+                enemy.TakeDamage(randomDamage); // Deal 1 damage
             }
         }
 

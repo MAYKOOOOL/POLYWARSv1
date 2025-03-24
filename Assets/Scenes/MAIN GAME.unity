@@ -2941,7 +2941,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 555298b938092b54ba9df27af51153fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 3
+  health: 20
 --- !u!1 &229542657
 GameObject:
   m_ObjectHideFlags: 0
@@ -12471,6 +12471,7 @@ Transform:
   - {fileID: 1492703925}
   - {fileID: 983395917}
   - {fileID: 1002135891}
+  - {fileID: 2005909816}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &842902830
@@ -15662,7 +15663,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 555298b938092b54ba9df27af51153fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 3
+  health: 20
 --- !u!1 &1022104347
 GameObject:
   m_ObjectHideFlags: 0
@@ -20944,7 +20945,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 555298b938092b54ba9df27af51153fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 3
+  health: 20
 --- !u!1 &1402559471
 GameObject:
   m_ObjectHideFlags: 0
@@ -27482,7 +27483,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 555298b938092b54ba9df27af51153fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 3
+  health: 20
 --- !u!1 &1818686553
 GameObject:
   m_ObjectHideFlags: 0
@@ -30681,12 +30682,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2005909814}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 177.8358, y: -45.6952, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 177.92091, y: -44.163284, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 833658615}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2011996801
 GameObject:
@@ -32099,7 +32100,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 555298b938092b54ba9df27af51153fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 3
+  health: 20
 --- !u!1 &2064742547
 GameObject:
   m_ObjectHideFlags: 0
@@ -32520,7 +32521,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 555298b938092b54ba9df27af51153fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 3
+  health: 20
 --- !u!1 &2079989144
 GameObject:
   m_ObjectHideFlags: 0
@@ -33837,4 +33838,3 @@ SceneRoots:
   - {fileID: 999787178}
   - {fileID: 2063964998}
   - {fileID: 1136850878}
-  - {fileID: 2005909816}

@@ -183,9 +183,9 @@ public class PlayerMovement : MonoBehaviour
                 KnockFromRight = false;
             }
 
-            int randomDamage = Random.Range(3, 5 + 1);
-            hm.TakeDamage(randomDamage);
-           
+            int randomDamage = Random.Range(3, 6);
+            hm  .TakeDamage(randomDamage);
+
         }
     }
 
