@@ -16,10 +16,11 @@ public class HealthManager : MonoBehaviour
     }
     public void TakeDamage(float damage)
     {
-        HealthAmount -= damage;
-        healthBar.fillAmount = HealthAmount / 100f;
 
-        if(HealthAmount <= 0)
+        health -= damage;
+        healthBar.fillAmount = health / 100f;
+
+        if(health <= 0)
         {
             Destroy(gameObject);
         }
