@@ -101,6 +101,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 20
+  boxCollider: {fileID: 0}
 --- !u!61 &2781045807705670824
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -295,6 +296,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 20
+  boxCollider: {fileID: 0}
 --- !u!61 &1102781823005073475
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -450,9 +452,9 @@ Rigidbody2D:
   m_ExcludeLayers:
     serializedVersion: 2
     m_Bits: 0
-  m_Interpolate: 0
+  m_Interpolate: 1
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 4
 --- !u!114 &3729126212792698081
 MonoBehaviour:
@@ -740,6 +742,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 20
+  boxCollider: {fileID: 0}
 --- !u!61 &4076487017241069154
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -975,6 +978,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 20
+  boxCollider: {fileID: 0}
 --- !u!61 &5726721356539290470
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1169,6 +1173,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 10
+  boxCollider: {fileID: 0}
 --- !u!61 &9045290781843403038
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1363,6 +1368,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 20
+  boxCollider: {fileID: 0}
 --- !u!61 &7589148879325018406
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1642,6 +1648,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 20
+  boxCollider: {fileID: 0}
 --- !u!61 &1053569215561129391
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1868,6 +1875,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 20
+  boxCollider: {fileID: 0}
 --- !u!61 &2072509559574014153
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2062,6 +2070,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 20
+  boxCollider: {fileID: 0}
 --- !u!61 &1806383571053268749
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2256,6 +2265,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 20
+  boxCollider: {fileID: 0}
 --- !u!61 &3238063604834701009
 BoxCollider2D:
   m_ObjectHideFlags: 0

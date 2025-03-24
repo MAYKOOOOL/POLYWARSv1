@@ -63,6 +63,7 @@ public class Projectile : MonoBehaviour
 
     private void Deactivate()
     {
+        lifetime = 3;
         gameObject.SetActive(false);
     }
 
