@@ -24,14 +24,12 @@ public class HealthManager : MonoBehaviour
         healthBar.fillAmount = currentHealth / maxHealth;
         Debug.Log("Health: " + currentHealth);
 
-        // Apply knockback if there's a damage source
         if (damageSource != null && playerMovement != null)
         {
             playerMovement.KBCounter = playerMovement.KBTotalTime;
             playerMovement.KnockFromRight = damageSource.position.x > transform.position.x;
         }
 
-        // Handle death
         if (currentHealth <= 0)
         {
             Die();
@@ -41,13 +39,15 @@ public class HealthManager : MonoBehaviour
     public void Heal(float healAmt)
     {
         currentHealth += healAmt;
-        currentHealth = Mathf.Clamp(currentHealth, 0, maxHealth);
+        currentHealth = Mathf.Clamp(currentHealth, 0, 100);
+        Debug.Log("Health: " + currentHealth);
 
-        healthBar.fillAmount = currentHealth / maxHealth;
+        healthBar.fillAmount = currentHealth / 100f; 
     }
+
 
     private void Die()
     {
-        Destroy(gameObject); // Replace with a death animation or respawn logic if needed
+        Destroy(gameObject); 
     }
 }

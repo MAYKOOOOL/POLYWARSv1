@@ -3072,6 +3072,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 10
+  lootPrefabs:
+  - {fileID: 9141290701205695637, guid: 94d49b6c152dd0949a583cddece800fe, type: 3}
+  - {fileID: 1575834766540930284, guid: a8afa403308d00d40a8989510e216789, type: 3}
+  dropChance: 0.5
 --- !u!1 &228861659
 GameObject:
   m_ObjectHideFlags: 0
@@ -10022,7 +10026,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 555298b938092b54ba9df27af51153fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 8
+  health: 15
+  lootPrefabs:
+  - {fileID: 9141290701205695637, guid: 94d49b6c152dd0949a583cddece800fe, type: 3}
+  - {fileID: 1575834766540930284, guid: a8afa403308d00d40a8989510e216789, type: 3}
+  dropChance: 0.5
 --- !u!1 &663054811
 GameObject:
   m_ObjectHideFlags: 0
@@ -10595,7 +10603,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3734934211544675182, guid: 6487758b6bf29b741b4f0e31696287ff, type: 3}
       propertyPath: attackCD
-      value: 1
+      value: 0.75
       objectReference: {fileID: 0}
     - target: {fileID: 3734934211544675182, guid: 6487758b6bf29b741b4f0e31696287ff, type: 3}
       propertyPath: fireballs.Array.size
@@ -16594,6 +16602,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 10
+  lootPrefabs:
+  - {fileID: 9141290701205695637, guid: 94d49b6c152dd0949a583cddece800fe, type: 3}
+  - {fileID: 1575834766540930284, guid: a8afa403308d00d40a8989510e216789, type: 3}
+  dropChance: 0.5
 --- !u!1 &1022104347
 GameObject:
   m_ObjectHideFlags: 0
@@ -17371,7 +17383,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 555298b938092b54ba9df27af51153fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 8
+  health: 15
+  lootPrefabs:
+  - {fileID: 9141290701205695637, guid: 94d49b6c152dd0949a583cddece800fe, type: 3}
+  - {fileID: 1575834766540930284, guid: a8afa403308d00d40a8989510e216789, type: 3}
+  dropChance: 0.5
 --- !u!1 &1039470732
 GameObject:
   m_ObjectHideFlags: 0
@@ -21768,7 +21784,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 555298b938092b54ba9df27af51153fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 8
+  health: 15
+  lootPrefabs:
+  - {fileID: 9141290701205695637, guid: 94d49b6c152dd0949a583cddece800fe, type: 3}
+  - {fileID: 1575834766540930284, guid: a8afa403308d00d40a8989510e216789, type: 3}
+  dropChance: 0.5
 --- !u!1 &1346440430
 GameObject:
   m_ObjectHideFlags: 0
@@ -22485,6 +22505,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 10
+  lootPrefabs:
+  - {fileID: 9141290701205695637, guid: 94d49b6c152dd0949a583cddece800fe, type: 3}
+  - {fileID: 1575834766540930284, guid: a8afa403308d00d40a8989510e216789, type: 3}
+  dropChance: 0.5
 --- !u!1 &1402559471
 GameObject:
   m_ObjectHideFlags: 0
@@ -24112,7 +24136,7 @@ Transform:
   m_GameObject: {fileID: 1504795393}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 70.2164, y: 10.5285, z: 0}
+  m_LocalPosition: {x: 69.3075, y: 10.5285, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -24155,7 +24179,7 @@ BoxCollider2D:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
     oldSize: {x: 1.63, y: 1.53}
-    newSize: {x: 100.30632, y: 0.7830744}
+    newSize: {x: 102.12406, y: 0.7830744}
     adaptiveTilingThreshold: 0.5
     drawMode: 2
     adaptiveTiling: 0
@@ -24209,7 +24233,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 2
-  m_Size: {x: 100.30632, y: 0.7830744}
+  m_Size: {x: 102.12406, y: 0.7830744}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -24796,7 +24820,7 @@ Transform:
   m_GameObject: {fileID: 1560153775}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 95.0585, y: 22.3714, z: 0}
+  m_LocalPosition: {x: 94.2091, y: 22.3714, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -24839,7 +24863,7 @@ BoxCollider2D:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
     oldSize: {x: 1.63, y: 1.55}
-    newSize: {x: 150.05225, y: 23.142887}
+    newSize: {x: 151.75113, y: 23.142887}
     adaptiveTilingThreshold: 0.5
     drawMode: 2
     adaptiveTiling: 0
@@ -24893,7 +24917,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 2
-  m_Size: {x: 150.05225, y: 23.142887}
+  m_Size: {x: 151.75113, y: 23.142887}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -26293,7 +26317,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 555298b938092b54ba9df27af51153fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 8
+  health: 15
+  lootPrefabs:
+  - {fileID: 9141290701205695637, guid: 94d49b6c152dd0949a583cddece800fe, type: 3}
+  - {fileID: 1575834766540930284, guid: a8afa403308d00d40a8989510e216789, type: 3}
+  dropChance: 0.5
 --- !u!1 &1646010503
 GameObject:
   m_ObjectHideFlags: 0
@@ -28295,7 +28323,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 555298b938092b54ba9df27af51153fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 8
+  health: 15
+  lootPrefabs:
+  - {fileID: 9141290701205695637, guid: 94d49b6c152dd0949a583cddece800fe, type: 3}
+  - {fileID: 1575834766540930284, guid: a8afa403308d00d40a8989510e216789, type: 3}
+  dropChance: 0.5
 --- !u!1 &1750795506
 GameObject:
   m_ObjectHideFlags: 0
@@ -29638,6 +29670,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 10
+  lootPrefabs:
+  - {fileID: 9141290701205695637, guid: 94d49b6c152dd0949a583cddece800fe, type: 3}
+  - {fileID: 1575834766540930284, guid: a8afa403308d00d40a8989510e216789, type: 3}
+  dropChance: 0.5
 --- !u!1 &1818686553
 GameObject:
   m_ObjectHideFlags: 0
@@ -30524,7 +30560,7 @@ MonoBehaviour:
   projectilePrefab: {fileID: 4666461136030981301, guid: 8a53fe79f3273a647ac67a3565b511e4, type: 3}
   firePoint: {fileID: 1767061400}
   playerTransform: {fileID: 1399792656}
-  detectionRange: 20
+  detectionRange: 18
   fireRate: 2
 --- !u!114 &1850117821
 MonoBehaviour:
@@ -30538,7 +30574,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 555298b938092b54ba9df27af51153fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 8
+  health: 15
+  lootPrefabs:
+  - {fileID: 9141290701205695637, guid: 94d49b6c152dd0949a583cddece800fe, type: 3}
+  - {fileID: 1575834766540930284, guid: a8afa403308d00d40a8989510e216789, type: 3}
+  dropChance: 0.5
 --- !u!1 &1851083930
 GameObject:
   m_ObjectHideFlags: 0
@@ -34087,7 +34127,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 555298b938092b54ba9df27af51153fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 8
+  health: 15
+  lootPrefabs:
+  - {fileID: 9141290701205695637, guid: 94d49b6c152dd0949a583cddece800fe, type: 3}
+  - {fileID: 1575834766540930284, guid: a8afa403308d00d40a8989510e216789, type: 3}
+  dropChance: 0.5
 --- !u!1 &2059505177
 GameObject:
   m_ObjectHideFlags: 0
@@ -34715,6 +34759,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 10
+  lootPrefabs:
+  - {fileID: 9141290701205695637, guid: 94d49b6c152dd0949a583cddece800fe, type: 3}
+  - {fileID: 1575834766540930284, guid: a8afa403308d00d40a8989510e216789, type: 3}
+  dropChance: 0.5
 --- !u!1 &2064742547
 GameObject:
   m_ObjectHideFlags: 0
@@ -35136,6 +35184,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 10
+  lootPrefabs:
+  - {fileID: 9141290701205695637, guid: 94d49b6c152dd0949a583cddece800fe, type: 3}
+  - {fileID: 1575834766540930284, guid: a8afa403308d00d40a8989510e216789, type: 3}
+  dropChance: 0.5
 --- !u!1 &2079989144
 GameObject:
   m_ObjectHideFlags: 0
