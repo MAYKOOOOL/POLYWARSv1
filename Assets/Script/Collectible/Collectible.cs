@@ -1,4 +1,5 @@
 using UnityEngine;
+using TMPro;
 
 public class Collectible : MonoBehaviour
 {
@@ -8,9 +9,15 @@ public class Collectible : MonoBehaviour
 
     public int[] healingValue = { 3, 8 };
 
-    private static int shardMax = 1; 
-    private static int currentShard = 0; 
+    private static int shardMax = 6; 
+    private static int currentShard = 0;
 
+    public TextMeshProUGUI shardCounterText;
+
+    private void Start()
+    {
+        UpdateShardUI(); 
+    }
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Player"))
@@ -33,6 +40,8 @@ public class Collectible : MonoBehaviour
                 currentShard++;
                 Debug.Log("Shard Collected! Total: " + currentShard + "/" + shardMax);
 
+                UpdateShardUI();
+
                 if (currentShard >= shardMax && playerHealth != null)
                 {
                     Debug.Log("All shards collected! Health fully restored!");
@@ -47,4 +56,13 @@ public class Collectible : MonoBehaviour
             Destroy(gameObject);
         }
     }
+
+    private void UpdateShardUI()
+    {
+        if (shardCounterText != null)
+        {
+            shardCounterText.text = "VET SHARD : " + currentShard + " / " + shardMax; 
+        }
+    }
+
 }
