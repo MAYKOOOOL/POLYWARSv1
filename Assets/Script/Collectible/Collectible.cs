@@ -8,7 +8,7 @@ public class Collectible : MonoBehaviour
 
     public int[] healingValue = { 3, 8 };
 
-    private static int shardMax = 6; 
+    private static int shardMax = 1; 
     private static int currentShard = 0; 
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -39,6 +39,7 @@ public class Collectible : MonoBehaviour
                     playerHealth.Heal(playerHealth.maxHealth); 
 
                     Projectile.ActivateDoubleDamage();
+                    player.ActivateShardPowerUp();
                 }
 
             }

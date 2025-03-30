@@ -8,7 +8,7 @@ public class PlayerMovement : MonoBehaviour
 {
     GameObject Background;
     [SerializeField] private float speed = 10f;
-    [SerializeField] private float jumpPower = 5f;
+    [SerializeField] private float jumpPower = 12f;
 
     [SerializeField] private LayerMask groundLayer;
     [SerializeField] private LayerMask wallLayer;
