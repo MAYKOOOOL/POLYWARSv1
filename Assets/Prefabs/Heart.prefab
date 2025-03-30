@@ -10,8 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 2604326598724136004}
   - component: {fileID: 2512759098792612669}
-  - component: {fileID: 6224196425583308975}
   - component: {fileID: 1179723731979541676}
+  - component: {fileID: 6491366116732581083}
   m_Layer: 0
   m_Name: Heart
   m_TagString: Untagged
@@ -86,8 +86,23 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!60 &6224196425583308975
-PolygonCollider2D:
+--- !u!114 &1179723731979541676
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1575834766540930284}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ab1ef37d999759f4b94dc51ebb77171a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  type: 1
+  value: 1
+  healingValue: 0300000008000000
+--- !u!58 &6491366116732581083
+CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -118,47 +133,6 @@ PolygonCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 12.8, y: 7.2}
-    newSize: {x: 10.24, y: 10.24}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  m_Points:
-    m_Paths:
-    - - {x: 2.58, y: 1.92}
-      - {x: 2.24, y: 2.26}
-      - {x: 0.64, y: 2.26}
-      - {x: 0.29999998, y: 1.92}
-      - {x: -0.32, y: 1.9399999}
-      - {x: -0.64, y: 2.26}
-      - {x: -2.24, y: 2.26}
-      - {x: -2.26, y: 2.24}
-      - {x: -2.58, y: 1.9699999}
-      - {x: -2.58, y: -0.37}
-      - {x: -2.37, y: -0.77}
-      - {x: -0.53999996, y: -2.26}
-      - {x: 0.59, y: -2.26}
-      - {x: 1.67, y: -1.02}
-      - {x: 2.27, y: -0.65}
-      - {x: 2.58, y: -0.32}
-  m_UseDelaunayMesh: 0
---- !u!114 &1179723731979541676
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1575834766540930284}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ab1ef37d999759f4b94dc51ebb77171a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  type: 1
-  value: 1
-  healingValue: 0300000008000000
+  m_Offset: {x: -0.040462017, y: 0.09880406}
+  serializedVersion: 2
+  m_Radius: 2.0884113

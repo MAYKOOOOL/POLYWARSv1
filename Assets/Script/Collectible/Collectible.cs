@@ -12,13 +12,21 @@ public class Collectible : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
-            Debug.Log("Health picked up!"); 
-            HealthManager playerHealth = collision.GetComponent<HealthManager>();
-            if (playerHealth != null)
+            if (type == CollectibleType.Health)
             {
-                int healAmount = healingValue[Random.Range(0, healingValue.Length)]; 
-                Debug.Log("Healing player by " + healAmount);
-                playerHealth.Heal(healAmount); 
+                Debug.Log("Health power-up picked up!");
+                HealthManager playerHealth = collision.GetComponent<HealthManager>();
+
+                if (playerHealth != null)
+                {
+                    int healAmount = healingValue[Random.Range(0, healingValue.Length)];
+                    Debug.Log("Healing player by " + healAmount);
+                    playerHealth.Heal(healAmount);
+                }
+            }
+            else if (type == CollectibleType.Coin)
+            {
+                Debug.Log("Coin collected!"); 
             }
 
             Destroy(gameObject);

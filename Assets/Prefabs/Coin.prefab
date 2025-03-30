@@ -10,8 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 2107345865402775660}
   - component: {fileID: 2549726877265573160}
-  - component: {fileID: 1307363309902778672}
   - component: {fileID: 7864421078925210137}
+  - component: {fileID: 761188987327763138}
   m_Layer: 5
   m_Name: Coin
   m_TagString: Untagged
@@ -74,7 +74,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1269832053
   m_SortingLayer: -2
-  m_SortingOrder: 2
+  m_SortingOrder: 100
   m_Sprite: {fileID: 21300000, guid: e77e5388ef5f7c84e83af01b9b9f3c02, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -86,8 +86,23 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!60 &1307363309902778672
-PolygonCollider2D:
+--- !u!114 &7864421078925210137
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9141290701205695637}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ab1ef37d999759f4b94dc51ebb77171a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  type: 0
+  value: 1
+  healingValue: 0300000008000000
+--- !u!58 &761188987327763138
+CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -118,48 +133,6 @@ PolygonCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 12.8, y: 7.2}
-    newSize: {x: 10.24, y: 10.24}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  m_Points:
-    m_Paths:
-    - - {x: 2.58, y: 0.71999997}
-      - {x: 2.3, y: 1.43}
-      - {x: 1.66, y: 2.08}
-      - {x: 0.72999996, y: 2.58}
-      - {x: -1.04, y: 2.58}
-      - {x: -1.63, y: 2.25}
-      - {x: -2.58, y: 1.3299999}
-      - {x: -2.8999999, y: 0.71}
-      - {x: -2.8999999, y: -1.02}
-      - {x: -2.58, y: -1.5999999}
-      - {x: -1.92, y: -2.26}
-      - {x: -1.65, y: -2.58}
-      - {x: -1.03, y: -2.8999999}
-      - {x: 0.71999997, y: -2.8999999}
-      - {x: 1.43, y: -2.62}
-      - {x: 2.08, y: -1.9799999}
-      - {x: 2.58, y: -1.05}
-  m_UseDelaunayMesh: 0
---- !u!114 &7864421078925210137
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9141290701205695637}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ab1ef37d999759f4b94dc51ebb77171a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  type: 0
-  value: 1
-  healingValue: 0300000008000000
+  m_Offset: {x: -0.028178215, y: 0}
+  serializedVersion: 2
+  m_Radius: 1.8116922
