@@ -42,10 +42,8 @@ public class PlayerAttack : MonoBehaviour
         animator.SetTrigger("Attack");
         cooldownTimer = 0;
 
-        // Adjust FirePoint's position based on the player's facing direction
        float direction = Mathf.Sign(transform.localScale.x);
 
-        // Spawn and initialize fireball
         GameObject fireball = fireballs[FindFireball()];
         fireball.transform.position = firePoint.position;
         fireball.GetComponent<Projectile>().setDirection(direction);

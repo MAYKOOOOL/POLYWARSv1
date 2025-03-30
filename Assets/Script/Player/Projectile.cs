@@ -11,7 +11,7 @@ public class Projectile : MonoBehaviour
     private Animator anim;
     [SerializeField] private BoxCollider2D boxCollider;
 
-    private static bool doubleDamage = false; // Track if damage is doubled
+    private static bool doubleDamage = false;
 
     private void Awake()
     {
@@ -38,13 +38,13 @@ public class Projectile : MonoBehaviour
         boxCollider.enabled = false;
         anim.SetTrigger("Explode");
 
-        if (collision.CompareTag("Enemy")) // Ensure the enemy has the "Enemy" tag
+        if (collision.CompareTag("Enemy")) 
         {
             Enemy enemy = collision.GetComponent<Enemy>();
             if (enemy != null)
             {
-                int baseDamage = Random.Range(3, 6); // Random damage between 3 and 5
-                int finalDamage = doubleDamage ? baseDamage * 2 : baseDamage; // Double damage if shards are collected
+                int baseDamage = Random.Range(3, 6); 
+                int finalDamage = doubleDamage ? baseDamage * 2 : baseDamage; 
 
                 Debug.Log("Dealing " + finalDamage + " damage to enemy!");
                 enemy.TakeDamage(finalDamage);
@@ -71,7 +71,7 @@ public class Projectile : MonoBehaviour
 
     public static void ActivateDoubleDamage()
     {
-        doubleDamage = true; // Enables double damage
+        doubleDamage = true; 
         Debug.Log("Double Damage Activated!");
     }
 }

@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -11,16 +10,26 @@ public class HealthManager : MonoBehaviour
 
     public PlayerMovement playerMovement;
 
+    private bool invincible = false;
+    [SerializeField] private float invincibilityDuration = 1f;
+    [SerializeField] private float flickerSpeed = 0.1f;
+
+    private SpriteRenderer[] spriteRenderers;
+
     private void Start()
     {
         currentHealth = maxHealth;
+
+        // Get all sprite renderers in case the player has multiple sprites (e.g., body, weapon)
+        spriteRenderers = GetComponentsInChildren<SpriteRenderer>();
     }
 
     public void TakeDamage(float damage, Transform damageSource = null)
     {
+        if (invincible) return;
+
         currentHealth -= damage;
         currentHealth = Mathf.Clamp(currentHealth, 0, maxHealth);
-
         healthBar.fillAmount = currentHealth / maxHealth;
         Debug.Log("Health: " + currentHealth);
 
@@ -34,20 +43,56 @@ public class HealthManager : MonoBehaviour
         {
             Die();
         }
+        else
+        {
+            StartCoroutine(ActivateIFrames());
+        }
+    }
+
+    private IEnumerator ActivateIFrames()
+    {
+        invincible = true;
+        Debug.Log("iFrames Active!");
+
+        float elapsedTime = 0;
+        while (elapsedTime < invincibilityDuration)
+        {
+            foreach (SpriteRenderer sr in spriteRenderers)
+            {
+                sr.color = new Color(sr.color.r, sr.color.g, sr.color.b, 0.2f); 
+            }
+            yield return new WaitForSeconds(flickerSpeed);
+
+            foreach (SpriteRenderer sr in spriteRenderers)
+            {
+                sr.color = new Color(sr.color.r, sr.color.g, sr.color.b, 2f); 
+            }
+            yield return new WaitForSeconds(flickerSpeed);
+
+            elapsedTime += flickerSpeed * 2;
+        }
+
+        // Ensure player is visible at the end
+        foreach (SpriteRenderer sr in spriteRenderers)
+        {
+            sr.color = new Color(sr.color.r, sr.color.g, sr.color.b, 1f);
+        }
+
+        invincible = false;
+        Debug.Log("iFrames Ended");
     }
 
     public void Heal(float healAmt)
     {
         currentHealth += healAmt;
-        currentHealth = Mathf.Clamp(currentHealth, 0, 100);
+        currentHealth = Mathf.Clamp(currentHealth, 0, maxHealth);
         Debug.Log("Health: " + currentHealth);
 
-        healthBar.fillAmount = currentHealth / 100f; 
+        healthBar.fillAmount = currentHealth / maxHealth;
     }
-
 
     private void Die()
     {
-        Destroy(gameObject); 
+        Destroy(gameObject);
     }
 }

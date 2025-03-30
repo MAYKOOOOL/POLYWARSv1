@@ -8,8 +8,8 @@ public class Collectible : MonoBehaviour
 
     public int[] healingValue = { 3, 8 };
 
-    private static int shardMax = 6;  // Total shards required
-    private static int currentShard = 0; // Track collected shards
+    private static int shardMax = 6; 
+    private static int currentShard = 0; 
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -33,11 +33,10 @@ public class Collectible : MonoBehaviour
                 currentShard++;
                 Debug.Log("Shard Collected! Total: " + currentShard + "/" + shardMax);
 
-                // If all shards are collected, max out health
                 if (currentShard >= shardMax && playerHealth != null)
                 {
                     Debug.Log("All shards collected! Health fully restored!");
-                    playerHealth.Heal(playerHealth.maxHealth); // Heal to max
+                    playerHealth.Heal(playerHealth.maxHealth); 
 
                     Projectile.ActivateDoubleDamage();
                 }

@@ -33,6 +33,8 @@ public class PlayerMovement : MonoBehaviour
 
     public bool KnockFromRight;
 
+    private SpriteRenderer spriteRenderer;
+
 
 
     private void Awake()
@@ -41,6 +43,7 @@ public class PlayerMovement : MonoBehaviour
         anim = GetComponent<Animator>();
         boxCollider = GetComponent<BoxCollider2D>();
         hm = FindObjectOfType<HealthManager>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
     private void Update()

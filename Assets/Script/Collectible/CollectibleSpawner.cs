@@ -14,8 +14,8 @@ public class CollectibleSpawner : MonoBehaviour
     public int maxCollectibles = 10;
     private List<GameObject> activeCollectibles = new List<GameObject>();
 
-    public LayerMask obstacleLayer; // Set this in Unity to include walls, ground, etc.
-    public float spawnRadius = 0.5f; // Check area for collision
+    public LayerMask obstacleLayer; 
+    public float spawnRadius = 0.5f; 
 
     private float currentSpawnInterval;
 
@@ -32,7 +32,7 @@ public class CollectibleSpawner : MonoBehaviour
         GameObject collectibleToSpawn = collectiblePrefabs[Random.Range(0, collectiblePrefabs.Length)];
 
         Vector2 spawnPosition;
-        int attempts = 10; // Limit retries to prevent infinite loops
+        int attempts = 10;
 
         do
         {
@@ -40,10 +40,9 @@ public class CollectibleSpawner : MonoBehaviour
             float randomY = Random.Range(spawnAreaMin.y, spawnAreaMax.y);
             spawnPosition = new Vector2(randomX, randomY);
 
-            // Check if spawn position is clear (no obstacles)
             if (!Physics2D.OverlapCircle(spawnPosition, spawnRadius, obstacleLayer))
             {
-                break; // Found a valid spawn point
+                break; 
             }
 
             attempts--;

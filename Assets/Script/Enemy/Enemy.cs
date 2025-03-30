@@ -2,9 +2,9 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    [SerializeField] private int health = 10; // Enemy's health
-    public GameObject[] lootPrefabs; // Assign different loot prefabs in the inspector
-    public float dropChance = 0.5f;  // 50% chance to drop loot
+    [SerializeField] private int health = 10; 
+    public GameObject[] lootPrefabs;
+    public float dropChance = 0.5f;
 
     public void TakeDamage(int damage)
     {
