@@ -3,44 +3,51 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-
 public class HealthManager : MonoBehaviour
 {
     public Image healthBar;
-    public float HealthAmount = 100f;
-    public float health;
+    public float maxHealth = 100f;
+    private float currentHealth;
+
+    public PlayerMovement playerMovement;
 
     private void Start()
     {
-        health = HealthAmount;
+        currentHealth = maxHealth;
     }
-    public void TakeDamage(float damage)
+
+    public void TakeDamage(float damage, Transform damageSource = null)
     {
+        currentHealth -= damage;
+        currentHealth = Mathf.Clamp(currentHealth, 0, maxHealth);
 
-        health -= damage;
-        healthBar.fillAmount = health / 100f;
+        healthBar.fillAmount = currentHealth / maxHealth;
+        Debug.Log("Health: " + currentHealth);
 
-        if(health <= 0)
+        // Apply knockback if there's a damage source
+        if (damageSource != null && playerMovement != null)
         {
-            Destroy(gameObject);
+            playerMovement.KBCounter = playerMovement.KBTotalTime;
+            playerMovement.KnockFromRight = damageSource.position.x > transform.position.x;
+        }
+
+        // Handle death
+        if (currentHealth <= 0)
+        {
+            Die();
         }
     }
 
-    private void Update()
-    {
-
-        if (Input.GetKeyDown(KeyCode.R))
-        {
-            Heal(20);
-        }
-    }
     public void Heal(float healAmt)
     {
-        HealthAmount += healAmt;
-        HealthAmount = Mathf.Clamp(HealthAmount, 0, 100);
+        currentHealth += healAmt;
+        currentHealth = Mathf.Clamp(currentHealth, 0, maxHealth);
 
-        healthBar.fillAmount = HealthAmount / 100f;
+        healthBar.fillAmount = currentHealth / maxHealth;
+    }
+
+    private void Die()
+    {
+        Destroy(gameObject); // Replace with a death animation or respawn logic if needed
     }
 }
-
-
