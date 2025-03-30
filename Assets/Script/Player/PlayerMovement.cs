@@ -15,6 +15,8 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private LayerMask trapLayer;
     [SerializeField] private LayerMask bossLayer;
 
+    [SerializeField] private ParticleSystem landingEffect;
+
     private Rigidbody2D rb;
     private Animator anim;
     private HealthManager hm;
@@ -22,6 +24,7 @@ public class PlayerMovement : MonoBehaviour
 
     private Vector2 mousePosition;
 
+    private bool wasGrounded;
     private bool shardPowerUpActive = false;
 
     private float horizontalInput;
@@ -34,9 +37,8 @@ public class PlayerMovement : MonoBehaviour
     public bool KnockFromRight;
 
     private SpriteRenderer spriteRenderer;
-
-
-
+    private bool wasGroundedLastFrame;
+    
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -46,8 +48,28 @@ public class PlayerMovement : MonoBehaviour
         spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
+    private void FixedUpdate()
+    {
+        if (isGrounded() && !wasGroundedLastFrame) // Detecting the first frame of landing
+        {
+            PlayLandingEffect();
+        }
+        wasGroundedLastFrame = isGrounded();
+    }
+
+
     private void Update()
     {
+        bool isCurrentlyGrounded = isGrounded();
+
+        // Play landing effect when player touches the ground
+        if (!wasGrounded && isCurrentlyGrounded)
+        {
+            PlayLandingEffect();
+        }
+
+        wasGrounded = isCurrentlyGrounded;
+
         horizontalInput = Input.GetAxis("Horizontal");
 /*        Background.transform.localScale = new Vector3(1, 1, 1);*/
 
@@ -168,6 +190,20 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
+    private void PlayLandingEffect()
+    {
+        if (landingEffect != null)
+        {
+            Debug.Log("Landing effect triggered!");
+            landingEffect.transform.position = new Vector3(transform.position.x, transform.position.y - 0.5f, transform.position.z);
+            landingEffect.Play();
+        }
+        else
+        {
+            Debug.LogWarning("LandingEffect not assigned!");
+        }
+    }
+
 
     /*private void flipCharacter(bool flip)
     {
@@ -186,7 +222,6 @@ public class PlayerMovement : MonoBehaviour
             Background.transform.localScale = new Vector3(1, 1, 1); // Reset background scale
         }
     }*/
-
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
@@ -212,7 +247,15 @@ public class PlayerMovement : MonoBehaviour
 
     private bool isGrounded()
     {
-        RaycastHit2D raycastHit = Physics2D.BoxCast(boxCollider.bounds.center, boxCollider.bounds.size, 0, Vector2.down, 0.1f, groundLayer);
+        RaycastHit2D raycastHit = Physics2D.BoxCast(
+            GetComponent<BoxCollider2D>().bounds.center,
+            GetComponent<BoxCollider2D>().bounds.size,
+            0f,
+            Vector2.down,
+            0.1f,
+            LayerMask.GetMask("Ground")
+        );
+
         return raycastHit.collider != null;
     }
 
@@ -227,6 +270,7 @@ public class PlayerMovement : MonoBehaviour
         RaycastHit2D raycastHit = Physics2D.BoxCast(boxCollider.bounds.center, boxCollider.bounds.size, 0, Vector2.down, 0.1f, trapLayer);
         return raycastHit.collider != null;
     }
+
     private bool onWall()
     {
         RaycastHit2D raycastHit = Physics2D.BoxCast(boxCollider.bounds.center, boxCollider.bounds.size, 0, new Vector2(transform.localScale.x, 0), 0.1f, wallLayer);
