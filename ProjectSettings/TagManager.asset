@@ -51,18 +51,21 @@ TagManager:
   - name: Blocks
     uniqueID: 2319615883
     locked: 0
-  - name: Enemy
-    uniqueID: 1455084791
-    locked: 0
   - name: Collectibles
     uniqueID: 1269832053
     locked: 0
   - name: UI
     uniqueID: 1587682503
     locked: 0
+  - name: Enemy
+    uniqueID: 369565815
+    locked: 0
   - name: Player
     uniqueID: 3711678479
     locked: 0
   - name: FireBalls
     uniqueID: 1819525777
+    locked: 0
+  - name: Bush
+    uniqueID: 445452807
     locked: 0
