@@ -8,25 +8,40 @@ public class Collectible : MonoBehaviour
 
     public int[] healingValue = { 3, 8 };
 
+    private static int shardMax = 6;  // Total shards required
+    private static int currentShard = 0; // Track collected shards
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Player"))
         {
-            if (type == CollectibleType.Health)
-            {
-                Debug.Log("Health power-up picked up!");
-                HealthManager playerHealth = collision.GetComponent<HealthManager>();
+            PlayerMovement player = collision.GetComponent<PlayerMovement>();
+            HealthManager playerHealth = collision.GetComponent<HealthManager>();
 
-                if (playerHealth != null)
-                {
-                    int healAmount = healingValue[Random.Range(0, healingValue.Length)];
-                    Debug.Log("Healing player by " + healAmount);
-                    playerHealth.Heal(healAmount);
-                }
+            if (type == CollectibleType.Health && playerHealth != null)
+            {
+                int healAmount = healingValue[Random.Range(0, healingValue.Length)];
+                playerHealth.Heal(healAmount);
+                Debug.Log("Healing player by " + healAmount);
             }
             else if (type == CollectibleType.Coin)
             {
-                Debug.Log("Coin collected!"); 
+                Debug.Log("Coin collected!");
+            }
+            else if (type == CollectibleType.Shard)
+            {
+                currentShard++;
+                Debug.Log("Shard Collected! Total: " + currentShard + "/" + shardMax);
+
+                // If all shards are collected, max out health
+                if (currentShard >= shardMax && playerHealth != null)
+                {
+                    Debug.Log("All shards collected! Health fully restored!");
+                    playerHealth.Heal(playerHealth.maxHealth); // Heal to max
+
+                    Projectile.ActivateDoubleDamage();
+                }
+
             }
 
             Destroy(gameObject);

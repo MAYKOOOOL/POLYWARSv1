@@ -8,11 +8,12 @@ public class PlayerMovement : MonoBehaviour
 {
     GameObject Background;
     [SerializeField] private float speed = 10f;
-    [SerializeField] private float jumpPower;
+    [SerializeField] private float jumpPower = 5f;
 
     [SerializeField] private LayerMask groundLayer;
     [SerializeField] private LayerMask wallLayer;
     [SerializeField] private LayerMask trapLayer;
+    [SerializeField] private LayerMask bossLayer;
 
     private Rigidbody2D rb;
     private Animator anim;
@@ -20,6 +21,8 @@ public class PlayerMovement : MonoBehaviour
     private BoxCollider2D boxCollider;
 
     private Vector2 mousePosition;
+
+    private bool shardPowerUpActive = false;
 
     private float horizontalInput;
     private float wallJumpCooldown;
@@ -29,6 +32,8 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] public float KBTotalTime = 0.5f;
 
     public bool KnockFromRight;
+
+
 
     private void Awake()
     {
@@ -125,7 +130,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void Jump()
     {
-        if (isGrounded() || isTrapped())
+        if (isGrounded() || isTrapped() || onBossBody())
         {
             rb.velocity = new Vector2(rb.velocity.x, jumpPower);
             anim.SetTrigger("Jump");
@@ -147,6 +152,19 @@ public class PlayerMovement : MonoBehaviour
 
 
     }
+
+    public void ActivateShardPowerUp()
+    {
+        if (!shardPowerUpActive)
+        {
+            speed *= 3;
+            jumpPower *= 2;
+            
+            shardPowerUpActive = true;
+            Debug.Log("Player stats boosted: Speed and Jump Power doubled!");
+        }
+    }
+
 
     /*private void flipCharacter(bool flip)
     {
@@ -183,7 +201,7 @@ public class PlayerMovement : MonoBehaviour
                 KnockFromRight = false;
             }
 
-            int randomDamage = Random.Range(3, 6);
+            int randomDamage = Random.Range(2, 4);
             hm  .TakeDamage(randomDamage);
 
         }
@@ -192,6 +210,12 @@ public class PlayerMovement : MonoBehaviour
     private bool isGrounded()
     {
         RaycastHit2D raycastHit = Physics2D.BoxCast(boxCollider.bounds.center, boxCollider.bounds.size, 0, Vector2.down, 0.1f, groundLayer);
+        return raycastHit.collider != null;
+    }
+
+    private bool onBossBody()
+    {
+        RaycastHit2D raycastHit = Physics2D.BoxCast(boxCollider.bounds.center, boxCollider.bounds.size, 0, Vector2.down, 0.1f, bossLayer);
         return raycastHit.collider != null;
     }
 

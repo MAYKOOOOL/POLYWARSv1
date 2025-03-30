@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class EnemyDamage : MonoBehaviour
 {
-    public int minDamage = 3;
-    public int maxDamage = 6;
+    public int minDamage = 2;
+    public int maxDamage = 5;
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
