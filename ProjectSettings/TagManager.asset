@@ -65,12 +65,12 @@ TagManager:
   - name: Collectibles
     uniqueID: 1269832053
     locked: 0
-  - name: Player
-    uniqueID: 3711678479
-    locked: 0
   - name: FireBalls
     uniqueID: 1819525777
     locked: 0
   - name: UI
     uniqueID: 1587682503
+    locked: 0
+  - name: Player
+    uniqueID: 3711678479
     locked: 0

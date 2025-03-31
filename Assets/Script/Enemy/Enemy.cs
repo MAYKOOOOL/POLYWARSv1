@@ -4,6 +4,7 @@ public class Enemy : MonoBehaviour
 {
     [SerializeField] private int health = 10; 
     public GameObject[] lootPrefabs;
+    public GameObject deathEffect;
     public float dropChance = 0.5f;
 
     public void TakeDamage(int damage)
@@ -19,8 +20,11 @@ public class Enemy : MonoBehaviour
 
     private void Die()
     {
-        Debug.Log("Enemy died!");
         DropLoot();
+        Debug.Log("Enemy Died at: " + transform.position);
+
+        GameObject effect = Instantiate(deathEffect, transform.position, Quaternion.identity);
+        Destroy(effect, 2f);
         Destroy(gameObject);
     }
 
