@@ -4,9 +4,11 @@ using UnityEngine;
 
 public class PlayerAttack : MonoBehaviour
 {
-    [SerializeField] private float attackCD = .75f;
+    [SerializeField] private float attackCD = 2f;
     [SerializeField] private Transform firePoint;
     [SerializeField] private GameObject[] fireballs;
+    [SerializeField] private ParticleSystem attackEffect;
+
     private Animator animator;
     private PlayerMovement playerMovement;
     private float cooldownTimer = Mathf.Infinity;
@@ -42,11 +44,26 @@ public class PlayerAttack : MonoBehaviour
         animator.SetTrigger("Attack");
         cooldownTimer = 0;
 
-       float direction = Mathf.Sign(transform.localScale.x);
+        if (attackEffect != null)
+        {
+            attackEffect.Stop();
+            attackEffect.transform.position = firePoint.position;
+            attackEffect.Play(); 
+        }
+
+
+        float direction = Mathf.Sign(transform.localScale.x);
 
         GameObject fireball = fireballs[FindFireball()];
         fireball.transform.position = firePoint.position;
         fireball.GetComponent<Projectile>().setDirection(direction);
+
+        if (fireball.GetComponent<Projectile>().launchEffect != null)
+        {
+            ParticleSystem effect = Instantiate(fireball.GetComponent<Projectile>().launchEffect, firePoint.position, Quaternion.identity);
+            effect.Play();
+            Destroy(effect.gameObject, 1f);
+        }
     }
 
 

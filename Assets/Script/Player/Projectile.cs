@@ -4,14 +4,28 @@ using UnityEngine;
 
 public class Projectile : MonoBehaviour
 {
+    [SerializeField] private BoxCollider2D boxCollider;
     [SerializeField] private float speed = 20f;
     private float direction;
     private bool hit;
     private float lifetime;
+
     private Animator anim;
-    [SerializeField] private BoxCollider2D boxCollider;
+    public GameObject impactEffect; 
+    public ParticleSystem launchEffect; 
 
     private static bool doubleDamage = false;
+
+    void Start()
+    {
+        // Play the launch particle effect
+        if (launchEffect != null)
+        {
+            ParticleSystem effect = Instantiate(launchEffect, transform.position, Quaternion.identity);
+            effect.Play();
+            Destroy(effect.gameObject, 1f); // Destroy after 1 sec to clean up
+        }
+    }
 
     private void Awake()
     {
@@ -61,7 +75,15 @@ public class Projectile : MonoBehaviour
         gameObject.SetActive(true);
 
         transform.localScale = new Vector3(direction, 1, 1);
+
+        if (launchEffect != null)
+        {
+            ParticleSystem effect = Instantiate(launchEffect, transform.position, Quaternion.identity);
+            effect.Play();
+            Destroy(effect.gameObject, 1f);     
+        }
     }
+
 
     private void Deactivate()
     {
