@@ -11,12 +11,15 @@ public class Collectible : MonoBehaviour
 
     private static int shardMax = 6; 
     private static int currentShard = 0;
+    private static int currentCoins = 0;
 
     public TextMeshProUGUI shardCounterText;
+    public TextMeshProUGUI coinCounterText;
 
     private void Start()
     {
-        UpdateShardUI(); 
+        UpdateShardUI();
+        UpdateCoinUI();
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -33,7 +36,9 @@ public class Collectible : MonoBehaviour
             }
             else if (type == CollectibleType.Coin)
             {
-                Debug.Log("Coin collected!");
+                currentCoins += value;
+                Debug.Log("Coin collected! Total: " + currentCoins);
+                UpdateCoinUI();
             }
             else if (type == CollectibleType.Shard)
             {
@@ -62,6 +67,16 @@ public class Collectible : MonoBehaviour
         if (shardCounterText != null)
         {
             shardCounterText.text = "VET SHARD : " + currentShard + " / " + shardMax; 
+        }
+    }
+
+    private void UpdateCoinUI()
+    {
+        Debug.Log("Coin Count: " + currentCoins);
+
+        if (coinCounterText != null)
+        {
+            coinCounterText.text = ": " + currentCoins;
         }
     }
 
