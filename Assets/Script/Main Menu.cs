@@ -27,12 +27,12 @@ public class MainMenu : MonoBehaviour
     public void PlayGame()
     {
         PlayButtonClickSound();
-/*
+
         if (AudioManager.instance != null)
         {
             AudioManager.instance.PlayBGM(AudioManager.instance.BGMSounds);
         }
-*/
+
         SceneManager.LoadScene("MAIN GAME");
     }
 
@@ -133,9 +133,9 @@ public class MainMenu : MonoBehaviour
 
     private void PlayButtonClickSound()
     {
-/*        if (AudioManager.instance != null)
+        if (AudioManager.instance != null)
         {
             AudioManager.instance.PlaySFX(AudioManager.instance.buttonClickSound);
-        }*/
+        }
     }
 }
