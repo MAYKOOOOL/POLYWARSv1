@@ -30,10 +30,18 @@ public class Enemy : MonoBehaviour
 
     private void DropLoot()
     {
-        if (lootPrefabs.Length > 0 && Random.value < dropChance) 
+        if (lootPrefabs.Length > 0 && Random.value < dropChance)
         {
             int randomIndex = Random.Range(0, lootPrefabs.Length);
+
+            if (lootPrefabs[randomIndex] == null)
+            {
+                Debug.LogWarning("Loot prefab is missing or destroyed!");
+                return;
+            }
+
             GameObject loot = Instantiate(lootPrefabs[randomIndex], transform.position, Quaternion.identity);
+            if (loot == null) return;
 
             Rigidbody2D rb = loot.GetComponent<Rigidbody2D>();
             if (rb != null)

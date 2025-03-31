@@ -5,7 +5,7 @@ public class Collectible : MonoBehaviour
 {
     public enum CollectibleType { Coin, Health, Shard }
     public CollectibleType type;
-    public int value = 1;
+    public int value = 2;
 
     public int[] healingValue = { 3, 8 };
 
@@ -36,10 +36,10 @@ public class Collectible : MonoBehaviour
             }
             else if (type == CollectibleType.Coin)
             {
-                currentCoins += value;
-                Debug.Log("Coin collected! Total: " + currentCoins);
-                UpdateCoinUI();
+                CoinManager.Instance.AddCoins(value);
+                Debug.Log("Coin collected! Total: " + CoinManager.Instance.currentCoins);
             }
+
             else if (type == CollectibleType.Shard)
             {
                 currentShard++;
