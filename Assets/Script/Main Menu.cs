@@ -6,9 +6,13 @@ public class MainMenu : MonoBehaviour
     public GameObject TutorialPanel;
     public GameObject OptionsPanel;
     public GameObject CreditsPanel;
+
+    public GameObject[] creditPages;
     public GameObject[] tutorialPages;
 
     private int tutorialPageIndex = 0;
+    private int creditPageIndex = 0;
+
 
     private void Start()
     {
@@ -22,6 +26,13 @@ public class MainMenu : MonoBehaviour
         }
 
         if (tutorialPages.Length > 0) tutorialPages[0].SetActive(true);
+
+        foreach(GameObject page in creditPages)
+        {
+            page.SetActive(false);
+        }
+
+        if (creditPages.Length > 0) creditPages[0].SetActive(true);
     }
 
     public void PlayGame()
@@ -120,6 +131,27 @@ public class MainMenu : MonoBehaviour
         {
             CreditsPanel.SetActive(false);
         }
+    }
+
+    public void NextCreditPage()
+    {
+        PlayButtonClickSound();
+        NavigatePages(creditPages, ref creditPageIndex, 1);
+    }
+
+    public void PreviousCreditPage()
+    {
+        PlayButtonClickSound();
+        NavigatePages(creditPages, ref creditPageIndex, -1);
+    }
+
+    private void NavigatePages(GameObject[] pages, ref int index, int direction)
+    {
+        if (pages.Length == 0) return;
+
+        pages[index].SetActive(false);
+        index = Mathf.Clamp(index + direction, 0, pages.Length - 1);
+        pages[index].SetActive(true);
     }
 
     public void QuitGame()
