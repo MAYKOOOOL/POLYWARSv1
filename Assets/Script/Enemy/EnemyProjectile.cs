@@ -18,8 +18,9 @@ public class EnemyProjectile : MonoBehaviour
 
         if (playerHealth != null)
         {
-            playerHealth.TakeDamage(projectileDamage);
-            Destroy(gameObject);
+            playerHealth.TakeDamage(projectileDamage, transform); // Apply damage to the HealthManager
+            Destroy(gameObject); // Destroy the projectile after hitting the player
         }
     }
+
 }

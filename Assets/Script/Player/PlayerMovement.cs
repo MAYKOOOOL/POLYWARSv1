@@ -21,6 +21,7 @@ public class PlayerMovement : MonoBehaviour
     private Animator anim;
     private HealthManager hm;
     private BoxCollider2D boxCollider;
+    private AudioManager audioManager;
 
     private Vector2 mousePosition;
 
@@ -46,11 +47,12 @@ public class PlayerMovement : MonoBehaviour
         boxCollider = GetComponent<BoxCollider2D>();
         hm = FindObjectOfType<HealthManager>();
         spriteRenderer = GetComponent<SpriteRenderer>();
+        audioManager = AudioManager.instance;
     }
 
     private void FixedUpdate()
     {
-        if (isGrounded() && !wasGroundedLastFrame) // Detecting the first frame of landing
+        if (isGrounded() && !wasGroundedLastFrame)
         {
             PlayLandingEffect();
         }
@@ -62,7 +64,6 @@ public class PlayerMovement : MonoBehaviour
     {
         bool isCurrentlyGrounded = isGrounded();
 
-        // Play landing effect when player touches the ground
         if (!wasGrounded && isCurrentlyGrounded)
         {
             PlayLandingEffect();
@@ -105,12 +106,14 @@ public class PlayerMovement : MonoBehaviour
         }
 
 
-        // animator parameters
+
         anim.SetBool("Run", horizontalInput != 0);
         anim.SetBool("Grounded", isGrounded());
 
+
+
         // para sa wall jump
-        if(wallJumpCooldown > 0.2f)
+        if (wallJumpCooldown > 0.2f)
         { 
             if(KBCounter <= 0)
             {
@@ -223,27 +226,20 @@ public class PlayerMovement : MonoBehaviour
         }
     }*/
 
-    private void OnCollisionEnter2D(Collision2D collision)
+private void OnCollisionEnter2D(Collision2D collision)
+{
+    if (collision.gameObject.CompareTag("Traps") || collision.gameObject.CompareTag("Enemy"))
     {
-        if (collision.gameObject.CompareTag("Traps"))
-        {
-           KBCounter = KBTotalTime;
+        KBCounter = KBTotalTime;
 
-            if (collision.transform.position.x <= transform.position.x)
-            {
-                KnockFromRight = true;
-            }
+        // Determine Knockback direction
+        KnockFromRight = collision.transform.position.x > transform.position.x;
 
-            if (collision.transform.position.x > transform.position.x)
-            {
-                KnockFromRight = false;
-            }
-
-            int randomDamage = Random.Range(2, 4);
-            hm  .TakeDamage(randomDamage);
-
-        }
+        int randomDamage = Random.Range(2, 4); // Random damage
+        hm.TakeDamage(randomDamage, transform); // Apply damage to the HealthManager
     }
+}
+
 
     private bool isGrounded()
     {

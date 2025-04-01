@@ -12,7 +12,7 @@ public class AudioManager : MonoBehaviour
     public Slider sfxSlider;
 
     public AudioClip buttonClickSound;
-    public AudioClip boink;
+    public AudioClip walking;
     public AudioClip powerUpPick;
     public AudioClip scorePoint;
     public AudioClip BGMSounds;
@@ -20,6 +20,7 @@ public class AudioManager : MonoBehaviour
 
     private void Awake()
     {
+
         if (instance == null)
         {
             instance = this;

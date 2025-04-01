@@ -14,7 +14,8 @@ public class EnemyDamage : MonoBehaviour
         if (playerHealth != null)
         {
             int damage = Random.Range(minDamage, maxDamage);
-            playerHealth.TakeDamage(damage, transform);
+            playerHealth.TakeDamage(damage, transform); // Apply damage to the HealthManager
         }
     }
+
 }

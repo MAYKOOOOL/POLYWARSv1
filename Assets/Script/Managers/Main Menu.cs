@@ -1,3 +1,5 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -41,12 +43,19 @@ public class MainMenu : MonoBehaviour
 
         if (AudioManager.instance != null)
         {
+            AudioManager.instance.musicSource.Stop(); 
             AudioManager.instance.PlayBGM(AudioManager.instance.BGMSounds); 
         }
 
-        SceneManager.LoadScene("MAIN GAME");
+        StartCoroutine(LoadGameScene());
     }
 
+    private IEnumerator LoadGameScene()
+    {
+        yield return new WaitForSeconds(1f);
+
+        SceneManager.LoadScene("MAIN GAME");
+    }
 
     public void OpenOptions()
     {

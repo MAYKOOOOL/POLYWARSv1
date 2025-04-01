@@ -29,13 +29,15 @@ public class HealthManager : MonoBehaviour
 
         currentHealth -= damage;
         currentHealth = Mathf.Clamp(currentHealth, 0, maxHealth);
+
         healthBar.fillAmount = currentHealth / maxHealth;
+
         Debug.Log("Health: " + currentHealth);
 
         if (damageSource != null && playerMovement != null)
         {
             playerMovement.KBCounter = playerMovement.KBTotalTime;
-            playerMovement.KnockFromRight = damageSource.position.x > transform.position.x;
+            playerMovement.KnockFromRight = damageSource.position.x > transform.position.x; 
         }
 
         if (currentHealth <= 0)
@@ -47,6 +49,7 @@ public class HealthManager : MonoBehaviour
             StartCoroutine(ActivateIFrames());
         }
     }
+
 
     private IEnumerator ActivateIFrames()
     {
