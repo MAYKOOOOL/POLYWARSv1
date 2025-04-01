@@ -189,4 +189,4 @@ MonoBehaviour:
   playerLayer:
     serializedVersion: 2
     m_Bits: 8
-  lifetime: 5
+  lifetime: 10

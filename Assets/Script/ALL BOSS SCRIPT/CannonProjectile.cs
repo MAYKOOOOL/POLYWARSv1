@@ -6,7 +6,7 @@ public class CannonProjectile : MonoBehaviour
     public float knockbackForce = 5f;
     public GameObject explosionEffect;
     public LayerMask playerLayer; 
-    public float lifetime = 3f; 
+    public float lifetime = 10f; 
 
     private float currentLifetime = 0f; 
 

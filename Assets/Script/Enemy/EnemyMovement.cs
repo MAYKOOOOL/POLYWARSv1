@@ -30,6 +30,8 @@ public class EnemyMovement : MonoBehaviour
 
     private void DetectPlayer()
     {
+        if (playerTransform == null) return; // Check if playerTransform is null before using it
+
         float distanceToPlayer = Vector2.Distance(transform.position, playerTransform.position);
         isChasing = distanceToPlayer < chaseDistance;
     }

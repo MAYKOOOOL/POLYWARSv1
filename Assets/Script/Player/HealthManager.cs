@@ -18,6 +18,7 @@ public class HealthManager : MonoBehaviour
 
     private void Start()
     {
+        gameObject.SetActive(true);
         currentHealth = maxHealth;
         spriteRenderers = GetComponentsInChildren<SpriteRenderer>();
     }
@@ -95,6 +96,6 @@ public class HealthManager : MonoBehaviour
 
     public void Die()
     {
-        Destroy(gameObject);
+        gameObject.SetActive(false);
     }
 }
