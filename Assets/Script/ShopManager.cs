@@ -1,11 +1,10 @@
 using UnityEngine;
-using UnityEngine.UI;
 using TMPro;
 
 public class ShopManager : MonoBehaviour
 {
-    public TextMeshProUGUI coinText; // UI element to show player's coins
-    public int playerCoins = 100; 
+    public TextMeshProUGUI shopCoinText; // UI for coins in the shop
+    public TextMeshProUGUI inGameCoinText; // UI for coins in the main game
 
     public ShopItem[] shopItems;
     public GameObject shopUI;
@@ -17,9 +16,15 @@ public class ShopManager : MonoBehaviour
         UpdateCoinUI();
     }
 
+    private void Update()
+    {
+        // Always sync coin UI with CoinManager
+        UpdateCoinUI();
+    }
+
     public void OpenShop()
     {
-        UpdateCoinUI();
+        AudioManager.instance.PlaySFX(AudioManager.instance.buttonClickSound);
         shopUI.SetActive(true);
         ToggleOtherUI(false);
     }
@@ -27,6 +32,7 @@ public class ShopManager : MonoBehaviour
     public void CloseShop()
     {
         shopUI.SetActive(false);
+        AudioManager.instance.PlaySFX(AudioManager.instance.buttonClickSound);
         ToggleOtherUI(true);
     }
 
@@ -41,8 +47,16 @@ public class ShopManager : MonoBehaviour
 
     public void UpdateCoinUI()
     {
-        playerCoins = CoinManager.Instance.currentCoins; // Get updated coin count
-        coinText.text = "Coins: " + playerCoins;
+        int currentCoins = CoinManager.Instance.currentCoins; // Get updated coins
+        if (shopCoinText != null)
+        {
+            shopCoinText.text = "Coins: " + currentCoins;
+        }
+
+        if (inGameCoinText != null)
+        {
+            inGameCoinText.text = "Coins: " + currentCoins;
+        }
     }
 
     public void TryPurchase()
@@ -54,22 +68,20 @@ public class ShopManager : MonoBehaviour
             totalCost += item.GetTotalCost();
         }
 
-        if (playerCoins >= totalCost)
+        if (CoinManager.Instance.currentCoins >= totalCost)
         {
-            playerCoins -= totalCost;
+            CoinManager.Instance.SpendCoins(totalCost); // Deduct coins correctly
 
             foreach (ShopItem item in shopItems)
             {
                 item.ConfirmPurchase();
             }
 
-            Debug.Log("Purchase successful!");
+            Debug.Log("Purchase successful! Remaining coins: " + CoinManager.Instance.currentCoins);
         }
         else
         {
             Debug.Log("Not enough coins!");
         }
-
-        UpdateCoinUI();
     }
 }

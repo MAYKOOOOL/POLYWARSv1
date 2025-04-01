@@ -19,8 +19,6 @@ public class HealthManager : MonoBehaviour
     private void Start()
     {
         currentHealth = maxHealth;
-
-        // Get all sprite renderers in case the player has multiple sprites (e.g., body, weapon)
         spriteRenderers = GetComponentsInChildren<SpriteRenderer>();
     }
 
@@ -59,20 +57,19 @@ public class HealthManager : MonoBehaviour
         {
             foreach (SpriteRenderer sr in spriteRenderers)
             {
-                sr.color = new Color(sr.color.r, sr.color.g, sr.color.b, 0.2f); 
+                sr.color = new Color(sr.color.r, sr.color.g, sr.color.b, 0.2f);
             }
             yield return new WaitForSeconds(flickerSpeed);
 
             foreach (SpriteRenderer sr in spriteRenderers)
             {
-                sr.color = new Color(sr.color.r, sr.color.g, sr.color.b, 2f); 
+                sr.color = new Color(sr.color.r, sr.color.g, sr.color.b, 1f);
             }
             yield return new WaitForSeconds(flickerSpeed);
 
             elapsedTime += flickerSpeed * 2;
         }
 
-        // Ensure player is visible at the end
         foreach (SpriteRenderer sr in spriteRenderers)
         {
             sr.color = new Color(sr.color.r, sr.color.g, sr.color.b, 1f);
@@ -86,9 +83,14 @@ public class HealthManager : MonoBehaviour
     {
         currentHealth += healAmt;
         currentHealth = Mathf.Clamp(currentHealth, 0, maxHealth);
-        Debug.Log("Health: " + currentHealth);
-
         healthBar.fillAmount = currentHealth / maxHealth;
+
+        Debug.Log("Healed! Current Health: " + currentHealth);
+    }
+
+    public float GetCurrentHealth()
+    {
+        return currentHealth;
     }
 
     private void Die()

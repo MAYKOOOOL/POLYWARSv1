@@ -41,11 +41,12 @@ public class MainMenu : MonoBehaviour
 
         if (AudioManager.instance != null)
         {
-            AudioManager.instance.PlayBGM(AudioManager.instance.BGMSounds);
+            AudioManager.instance.PlayBGM(AudioManager.instance.BGMSounds); 
         }
 
         SceneManager.LoadScene("MAIN GAME");
     }
+
 
     public void OpenOptions()
     {

@@ -49,7 +49,6 @@ public class AudioManager : MonoBehaviour
         sfxSlider.value = PlayerPrefs.GetFloat("SFXVolume", 0.5f);
         ApplyVolume();
 
-        // Play Main Menu BGM at the start
         PlayBGM(MainMenuSounds);
     }
 
@@ -83,6 +82,7 @@ public class AudioManager : MonoBehaviour
     {
         if (musicSource != null && clip != null)
         {
+            Debug.Log("Playing BGM: " + clip.name);
             musicSource.Stop();
             musicSource.loop = true;
             musicSource.clip = clip;
