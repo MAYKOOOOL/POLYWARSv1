@@ -93,7 +93,7 @@ public class HealthManager : MonoBehaviour
         return currentHealth;
     }
 
-    private void Die()
+    public void Die()
     {
         Destroy(gameObject);
     }

@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Projectile : MonoBehaviour
@@ -11,8 +9,8 @@ public class Projectile : MonoBehaviour
     private float lifetime;
 
     private Animator anim;
-    public GameObject impactEffect; 
-    public ParticleSystem launchEffect; 
+    public GameObject impactEffect;
+    public ParticleSystem launchEffect;
 
     private static bool doubleDamage = false;
 
@@ -52,16 +50,33 @@ public class Projectile : MonoBehaviour
         boxCollider.enabled = false;
         anim.SetTrigger("Explode");
 
-        if (collision.CompareTag("Enemy")) 
+        if (collision.CompareTag("Enemy") || collision.CompareTag("Boss"))
         {
-            Enemy enemy = collision.GetComponent<Enemy>();
-            if (enemy != null)
+            // Check if the collided object is the Boss
+            if (collision.CompareTag("Boss"))
             {
-                int baseDamage = Random.Range(3, 6); 
-                int finalDamage = doubleDamage ? baseDamage * 2 : baseDamage; 
+                BossHealth bossHealth = collision.GetComponent<BossHealth>();
+                if (bossHealth != null)
+                {
+                    int baseDamage = Random.Range(3, 6);
+                    int finalDamage = doubleDamage ? baseDamage * 2 : baseDamage;
 
-                Debug.Log("Dealing " + finalDamage + " damage to enemy!");
-                enemy.TakeDamage(finalDamage);
+                    Debug.Log("Dealing " + finalDamage + " damage to boss!");
+                    bossHealth.TakeDamage(finalDamage); // Apply damage to the boss
+                }
+            }
+            else
+            {
+                // Assuming "Enemy" is another object that can take damage
+                Enemy enemy = collision.GetComponent<Enemy>();
+                if (enemy != null)
+                {
+                    int baseDamage = Random.Range(3, 6);
+                    int finalDamage = doubleDamage ? baseDamage * 2 : baseDamage;
+
+                    Debug.Log("Dealing " + finalDamage + " damage to enemy!");
+                    enemy.TakeDamage(finalDamage); // Apply damage to the enemy
+                }
             }
         }
     }
@@ -80,10 +95,9 @@ public class Projectile : MonoBehaviour
         {
             ParticleSystem effect = Instantiate(launchEffect, transform.position, Quaternion.identity);
             effect.Play();
-            Destroy(effect.gameObject, 1f);     
+            Destroy(effect.gameObject, 1f);
         }
     }
-
 
     private void Deactivate()
     {
@@ -93,7 +107,7 @@ public class Projectile : MonoBehaviour
 
     public static void ActivateDoubleDamage()
     {
-        doubleDamage = true; 
+        doubleDamage = true;
         Debug.Log("Double Damage Activated!");
     }
 }
