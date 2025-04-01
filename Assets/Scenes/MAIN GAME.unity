@@ -27909,7 +27909,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e95843a020b313945ae5ca43d32390fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 100
+  maxHealth: 10
   healthBar: {fileID: 883506104}
   invincibilityDuration: 1
   flickerSpeed: 0.1
@@ -45974,7 +45974,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &966137650
 RectTransform:
   m_ObjectHideFlags: 0
@@ -55891,9 +55891,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1365057879}
-        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
-        m_MethodName: PlayAgain
+      - m_Target: {fileID: 1030910767}
+        m_TargetAssemblyTypeName: PauseMenu, Assembly-CSharp
+        m_MethodName: RestartGame
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -67147,6 +67147,14 @@ MonoBehaviour:
   bossHealthManager: {fileID: 630689245}
   winPanel: {fileID: 2092305720}
   losePanel: {fileID: 813746733}
+  otherUIElements:
+  - {fileID: 1245023945}
+  - {fileID: 1904504755}
+  - {fileID: 1715128850}
+  - {fileID: 1006118544}
+  - {fileID: 1305741775}
+  - {fileID: 568461516}
+  - {fileID: 1483098607}
 --- !u!4 &1365057880
 Transform:
   m_ObjectHideFlags: 0
@@ -96821,9 +96829,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1365057879}
-        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
-        m_MethodName: PlayAgain
+      - m_Target: {fileID: 1030910767}
+        m_TargetAssemblyTypeName: PauseMenu, Assembly-CSharp
+        m_MethodName: RestartGame
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
