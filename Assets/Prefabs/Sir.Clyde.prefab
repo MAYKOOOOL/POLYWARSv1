@@ -409,7 +409,7 @@ GameObject:
   - component: {fileID: 46888381068976856}
   - component: {fileID: 3729126212792698081}
   - component: {fileID: 3734934211544675182}
-  - component: {fileID: 2735024685365624488}
+  - component: {fileID: 945439045209014374}
   m_Layer: 0
   m_Name: Sir.Clyde
   m_TagString: Player
@@ -636,7 +636,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   attackEffect: {fileID: 0}
---- !u!114 &2735024685365624488
+--- !u!114 &945439045209014374
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -650,7 +650,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   healthBar: {fileID: 0}
   maxHealth: 100
-  playerMovement: {fileID: 3729126212792698081}
+  playerMovement: {fileID: 0}
   invincibilityDuration: 1
   flickerSpeed: 0.1
 --- !u!1 &891733955403080025

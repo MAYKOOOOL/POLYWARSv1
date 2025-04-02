@@ -28,6 +28,7 @@ public class HealthManager : MonoBehaviour
 
         currentHealth = maxHealth;
         spriteRenderers = GetComponentsInChildren<SpriteRenderer>();
+        Debug.Log($"HealthManager Instance: {this.gameObject.name}");
     }
 
     public void TakeDamage(Transform damageSource = null)
@@ -65,9 +66,9 @@ public class HealthManager : MonoBehaviour
         AudioManager.instance.PlaySFX(AudioManager.instance.hit);
         if (invincible) return;
 
-        int randomDamage = Random.Range(3, 5);
+        int damage = 30;
 
-        currentHealth -= randomDamage;
+        currentHealth -= damage;
         currentHealth = Mathf.Clamp(currentHealth, 0, maxHealth);
 
         healthBar.fillAmount = currentHealth / maxHealth;
