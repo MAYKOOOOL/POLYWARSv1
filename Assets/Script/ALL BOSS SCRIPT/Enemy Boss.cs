@@ -48,6 +48,7 @@ public class BossEnemy : MonoBehaviour
     {
         int projectileCount = 3;
         float angleStep = 15f;
+        AudioManager.instance.PlaySFX(AudioManager.instance.bossCannonFire);
 
         for (int i = 0; i < projectileCount; i++)
         {

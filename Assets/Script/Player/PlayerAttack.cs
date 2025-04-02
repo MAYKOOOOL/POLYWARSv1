@@ -22,6 +22,7 @@ public class PlayerAttack : MonoBehaviour
     private void Update()
     {
         if (Input.GetKey(KeyCode.J)  && cooldownTimer > attackCD && playerMovement.canAttack())
+
             Attack();
 
         cooldownTimer += Time.deltaTime;
@@ -43,6 +44,7 @@ public class PlayerAttack : MonoBehaviour
         Debug.Log("Attack triggered!");
         animator.SetTrigger("Attack");
         cooldownTimer = 0;
+        AudioManager.instance.PlaySFX(AudioManager.instance.projectileFire);
 
         if (attackEffect != null)
         {

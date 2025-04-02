@@ -9,7 +9,7 @@ public class Collectible : MonoBehaviour
 
     public int[] healingValue = { 3, 8 };
 
-    private static int shardMax = 6; 
+    private static int shardMax = 6;
     private static int currentShard = 0;
     private static int currentCoins = 0;
 
@@ -21,12 +21,15 @@ public class Collectible : MonoBehaviour
         UpdateShardUI();
         UpdateCoinUI();
     }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Player"))
         {
             PlayerMovement player = collision.GetComponent<PlayerMovement>();
             HealthManager playerHealth = collision.GetComponent<HealthManager>();
+
+            AudioManager.instance.PlaySFX(AudioManager.instance.pickUp);
 
             if (type == CollectibleType.Health && playerHealth != null)
             {
@@ -39,23 +42,20 @@ public class Collectible : MonoBehaviour
                 CoinManager.Instance.AddCoins(value);
                 Debug.Log("Coin collected! Total: " + CoinManager.Instance.currentCoins);
             }
-
             else if (type == CollectibleType.Shard)
             {
                 currentShard++;
                 Debug.Log("Shard Collected! Total: " + currentShard + "/" + shardMax);
-
                 UpdateShardUI();
 
                 if (currentShard >= shardMax && playerHealth != null)
                 {
                     Debug.Log("All shards collected! Health fully restored!");
-                    playerHealth.Heal(playerHealth.maxHealth); 
+                    playerHealth.Heal(playerHealth.maxHealth);
 
                     Projectile.ActivateDoubleDamage();
                     player.ActivateShardPowerUp();
                 }
-
             }
 
             Destroy(gameObject);
@@ -66,7 +66,7 @@ public class Collectible : MonoBehaviour
     {
         if (shardCounterText != null)
         {
-            shardCounterText.text = "VET SHARD : " + currentShard + " / " + shardMax; 
+            shardCounterText.text = "VET SHARD : " + currentShard + " / " + shardMax;
         }
     }
 
@@ -79,5 +79,4 @@ public class Collectible : MonoBehaviour
             coinCounterText.text = ": " + currentCoins;
         }
     }
-
 }

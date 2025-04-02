@@ -25,6 +25,7 @@ public class HealthManager : MonoBehaviour
 
     public void TakeDamage(float damage, Transform damageSource = null)
     {
+        AudioManager.instance.PlaySFX(AudioManager.instance.hit);
         if (invincible) return;
 
         currentHealth -= damage;

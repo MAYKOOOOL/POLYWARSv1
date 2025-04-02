@@ -50,6 +50,15 @@ public class GameManager : MonoBehaviour
         winPanel.SetActive(isWin);
         losePanel.SetActive(!isWin);
 
+        if (isWin)
+        {
+            AudioManager.instance.PlaySFX(AudioManager.instance.winSound);
+        }
+        else
+        {
+            AudioManager.instance.PlaySFX(AudioManager.instance.loseSound);
+        }
+
         foreach (GameObject uiElement in otherUIElements)
         {
             uiElement.SetActive(false);

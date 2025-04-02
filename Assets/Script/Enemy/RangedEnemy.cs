@@ -31,6 +31,7 @@ public class RangedEnemy : MonoBehaviour
     {
         GameObject projectile = Instantiate(projectilePrefab, firePoint.position, Quaternion.identity);
         Rigidbody2D rb = projectile.GetComponent<Rigidbody2D>();
+        AudioManager.instance.PlaySFX(AudioManager.instance.rangedEnemyProjectile);
 
         if (rb != null)
         {

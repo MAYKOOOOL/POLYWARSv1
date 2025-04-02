@@ -13,8 +13,13 @@ public class AudioManager : MonoBehaviour
 
     public AudioClip buttonClickSound;
     public AudioClip walking;
-    public AudioClip powerUpPick;
-    public AudioClip scorePoint;
+    public AudioClip pickUp;
+    public AudioClip hit;
+    public AudioClip winSound;
+    public AudioClip loseSound;
+    public AudioClip projectileFire;
+    public AudioClip bossCannonFire;
+    public AudioClip rangedEnemyProjectile;
     public AudioClip BGMSounds;
     public AudioClip MainMenuSounds;
 

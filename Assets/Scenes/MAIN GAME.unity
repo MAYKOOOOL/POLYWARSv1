@@ -27909,7 +27909,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e95843a020b313945ae5ca43d32390fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 10
+  maxHealth: 100
   healthBar: {fileID: 883506104}
   invincibilityDuration: 1
   flickerSpeed: 0.1
@@ -30655,6 +30655,10 @@ PrefabInstance:
       propertyPath: playerMovement
       value: 
       objectReference: {fileID: 1546417788}
+    - target: {fileID: 4657271410160846956, guid: 6487758b6bf29b741b4f0e31696287ff, type: 3}
+      propertyPath: invincibilityDuration
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 5437554374403522844, guid: 6487758b6bf29b741b4f0e31696287ff, type: 3}
       propertyPath: rb
       value: 
@@ -92487,11 +92491,16 @@ MonoBehaviour:
   musicSlider: {fileID: 1343930345}
   sfxSlider: {fileID: 106826448}
   buttonClickSound: {fileID: 8300000, guid: fd638be5480717c4fa902a22ac1ff21d, type: 3}
-  boink: {fileID: 0}
-  powerUpPick: {fileID: 0}
-  scorePoint: {fileID: 0}
-  BGMSounds: {fileID: 8300000, guid: ae1c036ac3fb87745a3e72225adf6a8d, type: 3}
-  MainMenuSounds: {fileID: 8300000, guid: 7ab107c4373f8a24cb4a71737ea71262, type: 3}
+  walking: {fileID: 0}
+  pickUp: {fileID: 8300000, guid: b0802a3d5ef69b645a0e7f344cf5eaa1, type: 3}
+  hit: {fileID: 8300000, guid: 3dafbafeba5803245b22d731abce21b1, type: 3}
+  winSound: {fileID: 8300000, guid: 91314857660994b4889c09ebf5395a41, type: 3}
+  loseSound: {fileID: 8300000, guid: 91314857660994b4889c09ebf5395a41, type: 3}
+  projectileFire: {fileID: 8300000, guid: 490e99a93c4928a47bb5e67d6a692f5f, type: 3}
+  bossCannonFire: {fileID: 8300000, guid: 47e0881e7cf1e6e4fb46d8494579c333, type: 3}
+  rangedEnemyProjectile: {fileID: 8300000, guid: 8d1ed4421ec7d614693b3f9cd0cac19d, type: 3}
+  BGMSounds: {fileID: 8300000, guid: 524d4bcedd717404ea0fd40a2202a982, type: 3}
+  MainMenuSounds: {fileID: 8300000, guid: 524d4bcedd717404ea0fd40a2202a982, type: 3}
 --- !u!1 &1890603863
 GameObject:
   m_ObjectHideFlags: 0
