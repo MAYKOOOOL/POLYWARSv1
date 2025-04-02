@@ -19,16 +19,25 @@ public class HealthManager : MonoBehaviour
     private void Start()
     {
         gameObject.SetActive(true);
+        spriteRenderers = GetComponentsInChildren<SpriteRenderer>();
+
+        if (playerMovement == null)
+        {
+            playerMovement = GetComponent<PlayerMovement>();
+        }
+
         currentHealth = maxHealth;
         spriteRenderers = GetComponentsInChildren<SpriteRenderer>();
     }
 
-    public void TakeDamage(float damage, Transform damageSource = null)
+    public void TakeDamage(Transform damageSource = null)
     {
         AudioManager.instance.PlaySFX(AudioManager.instance.hit);
         if (invincible) return;
 
-        currentHealth -= damage;
+        int randomDamage = Random.Range(3, 5);
+
+        currentHealth -= randomDamage;
         currentHealth = Mathf.Clamp(currentHealth, 0, maxHealth);
 
         healthBar.fillAmount = currentHealth / maxHealth;
@@ -39,6 +48,36 @@ public class HealthManager : MonoBehaviour
         {
             playerMovement.KBCounter = playerMovement.KBTotalTime;
             playerMovement.KnockFromRight = damageSource.position.x > transform.position.x; 
+        }
+
+        if (currentHealth <= 0)
+        {
+            Die();
+        }
+        else
+        {
+            StartCoroutine(ActivateIFrames());
+        }
+    }
+
+    public void TakeBossDamage(Transform damageSource = null)
+    {
+        AudioManager.instance.PlaySFX(AudioManager.instance.hit);
+        if (invincible) return;
+
+        int randomDamage = Random.Range(3, 5);
+
+        currentHealth -= randomDamage;
+        currentHealth = Mathf.Clamp(currentHealth, 0, maxHealth);
+
+        healthBar.fillAmount = currentHealth / maxHealth;
+
+        Debug.Log("Health: " + currentHealth);
+
+        if (damageSource != null && playerMovement != null)
+        {
+            playerMovement.KBCounter = playerMovement.KBTotalTime;
+            playerMovement.KnockFromRight = damageSource.position.x > transform.position.x;
         }
 
         if (currentHealth <= 0)
@@ -81,7 +120,6 @@ public class HealthManager : MonoBehaviour
         }
 
         invincible = false;
-        Debug.Log("iFrames Ended");
     }
 
     public void Heal(float healAmt)

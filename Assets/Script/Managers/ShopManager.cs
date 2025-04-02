@@ -47,7 +47,7 @@ public class ShopManager : MonoBehaviour
 
     public void UpdateCoinUI()
     {
-        int currentCoins = CoinManager.Instance.currentCoins; // Get updated coins
+        int currentCoins = CoinManager.Instance.currentCoins; 
         if (shopCoinText != null)
         {
             shopCoinText.text = "Coins: " + currentCoins;

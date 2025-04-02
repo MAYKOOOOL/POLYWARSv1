@@ -4,18 +4,22 @@ using UnityEngine;
 
 public class EnemyDamage : MonoBehaviour
 {
-    public int minDamage = 2;
-    public int maxDamage = 5;
-
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        HealthManager playerHealth = collision.gameObject.GetComponent<HealthManager>();
-
-        if (playerHealth != null)
+        if (collision.gameObject.CompareTag("Player"))
         {
-            int damage = Random.Range(minDamage, maxDamage);
-            playerHealth.TakeDamage(damage, transform); // Apply damage to the HealthManager
+            HealthManager playerHealth = collision.gameObject.GetComponent<HealthManager>();
+
+            if (playerHealth != null)
+            {
+                playerHealth.TakeDamage(transform);
+            }
+            else
+            {
+                Debug.LogWarning("HealthManager component not found on player!");
+            }
         }
     }
+
 
 }

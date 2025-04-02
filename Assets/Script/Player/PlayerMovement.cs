@@ -197,13 +197,8 @@ public class PlayerMovement : MonoBehaviour
     {
         if (landingEffect != null)
         {
-            Debug.Log("Landing effect triggered!");
             landingEffect.transform.position = new Vector3(transform.position.x, transform.position.y - 0.5f, transform.position.z);
             landingEffect.Play();
-        }
-        else
-        {
-            Debug.LogWarning("LandingEffect not assigned!");
         }
     }
 
@@ -232,11 +227,8 @@ private void OnCollisionEnter2D(Collision2D collision)
     {
         KBCounter = KBTotalTime;
 
-        // Determine Knockback direction
         KnockFromRight = collision.transform.position.x > transform.position.x;
-
-        int randomDamage = Random.Range(2, 4); // Random damage
-        hm.TakeDamage(randomDamage, transform); // Apply damage to the HealthManager
+        hm.TakeDamage(transform); 
     }
 }
 

@@ -73,7 +73,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1269832053
-  m_SortingLayer: -2
+  m_SortingLayer: 4
   m_SortingOrder: 2
   m_Sprite: {fileID: 21300000, guid: b15b35960a4d15a4b868478796200fe8, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -100,7 +100,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   type: 1
   value: 1
-  healingValue: 0300000008000000
+  healingValue: 080000000a000000
+  shardCounterText: {fileID: 0}
+  coinCounterText: {fileID: 0}
 --- !u!58 &6491366116732581083
 CircleCollider2D:
   m_ObjectHideFlags: 0

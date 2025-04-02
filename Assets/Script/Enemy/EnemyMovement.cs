@@ -8,7 +8,8 @@ public class EnemyMovement : MonoBehaviour
     public float moveSpeed;
     public float patrolDestination;
     public Transform playerTransform;
-    public float chaseDistance = 5f;
+    public float chaseDistance = 5f; 
+    public int enemyDamage = 5;
 
     private bool isChasing;
 

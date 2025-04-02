@@ -5,7 +5,6 @@ using UnityEngine;
 public class EnemyProjectile : MonoBehaviour
 {
     public float lifetime = 3f;
-    public int projectileDamage = 5;
 
     void Start()
     {
@@ -18,8 +17,8 @@ public class EnemyProjectile : MonoBehaviour
 
         if (playerHealth != null)
         {
-            playerHealth.TakeDamage(projectileDamage, transform); // Apply damage to the HealthManager
-            Destroy(gameObject); // Destroy the projectile after hitting the player
+            playerHealth.TakeDamage(transform);
+            Destroy(gameObject);
         }
     }
 

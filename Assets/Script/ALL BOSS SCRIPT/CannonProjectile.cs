@@ -41,7 +41,7 @@ public class CannonProjectile : MonoBehaviour
             {
                 Destroy(gameObject);
               
-                playerHealth.TakeDamage(damage);
+                playerHealth.TakeBossDamage(transform);
 
                 ApplyKnockback(collision.gameObject);
 
